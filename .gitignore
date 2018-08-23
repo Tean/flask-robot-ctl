@@ -3,5 +3,9 @@ monitor/logs/
 
 # upload
 monitor/upload/
+
 .idea/
 venv/
+flask-robot-ctl.iml
+flask-robot-ctl.ipr
+flask-robot-ctl.iws
