@@ -16,7 +16,7 @@ config = {
 }
 user_orm_url = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
 
-user_sql = 'select * from user where user_id = %s limit 1'
+user_sql = 'select * from user where username = %s limit 1'
 logger = monitor_logger.get_logger(__name__)
 
 

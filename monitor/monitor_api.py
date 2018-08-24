@@ -1,17 +1,21 @@
 # coding=utf-8
+import json
 import random
 import time
 
-from flask import jsonify
+from flask import jsonify, request
 from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
-
 
 # http://www.flaskapi.org/
 # https://www.fullstackpython.com/api-creation.html
 # 使用Flask-RESTful构建REST API
 # http://flask-restful.readthedocs.io/en/latest/
 # https://www.codementor.io/sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq
+from monitor.db_util import get_qq, get_qq_mapped, get_qq_list_mapped, post_qq_mapped, del_qq_mapped, put_qq_mapped
+from monitor.qq import QQEncoder
+
+
 class MonitorApi(Resource):
 
     @staticmethod
@@ -37,22 +41,42 @@ def find(id):
         abort(404, message='{} not found in db'.format(id))
     return db[id]
 
+
 class Acts(Resource):
     def get(self):
         return db
 
-class Act1(Resource):
-    def get(self, id):
-        return find(id)
+
+class QQList(Resource):
+    def get(self):
+        qqs = get_qq_list_mapped()
+        return jsonify(json.dumps(qqs, cls=QQEncoder))
 
     def post(self, id):
         db[id] = parser.parse_args()
         return '', 202
 
 
-class Act2(Resource):
-    def get(self, id):
-        return find(id)
+class QQByNo(Resource):
+    def get(self, qq_no):
+        qq = get_qq_mapped(qq_no)
+        return jsonify(json.dumps(qq, cls=QQEncoder))
+
+    def delete(self, qq_no):
+        id = del_qq_mapped(qq_no)
+        return jsonify(id)
+
+
+class QQAdd(Resource):
+    def post(self):
+        json = request.json
+        ret = post_qq_mapped(json)
+        return jsonify(ret)
+
+    def put(self):
+        json = request.json
+        ret = put_qq_mapped(json)
+        return jsonify(ret)
 
 
 class Act3(Resource):
