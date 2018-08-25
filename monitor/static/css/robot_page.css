@@ -9,3 +9,7 @@ body {
     height: 0.8em;
     background: linear-gradient(125deg, transparent 49.5%, rgb(73, 70, 72) 49.5%, rgb(20, 9, 15) 50.5%, transparent 50.5%);
 }
+
+.breadcrumb > .active {
+  color: #777;
+}

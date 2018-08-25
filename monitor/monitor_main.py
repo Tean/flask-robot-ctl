@@ -4,6 +4,7 @@ import json
 import os
 import random
 import time
+from datetime import timedelta
 
 import flask_login
 import monitor_api
@@ -126,6 +127,16 @@ def error(e):
         return render_template('error.html')
 
 
+@app.route('/robot', methods=['GET'])
+@app.route('/robot/index', methods=['GET'])
+@flask_login.login_required
+def robot():
+    next_url = request.args.get("next")
+    if not is_safe_url(next_url):
+        return abort(400)
+    return render_template('robot/index.html', name=flask_login.current_user.id)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -151,7 +162,7 @@ def login():
             resp.set_cookie('username', username)
             if not is_safe_url(next_url):
                 return abort(400)
-            return redirect(next_url or url_for('index'))
+            return redirect(next_url or url_for('robot'))
         else:
             # return redirect(url_for('error'))
             return abort(404)
@@ -349,6 +360,9 @@ def blueprint(name):
         pass
 
 
+app.config['DEBUG'] = True
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.secret_key = 'aHR0cDovL3d3dy53YW5kYS5jbi8='
 
 if __name__ == '__main__':

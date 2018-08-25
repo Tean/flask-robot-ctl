@@ -90,6 +90,7 @@ Base = declarative_base()
 
 # for login
 # SQLAlchemy orm
+# retrieve
 def get_qq_mapped(qq_no):
     global s
     try:
@@ -108,6 +109,7 @@ def get_qq_mapped(qq_no):
         s.close()
 
 
+# delete
 def del_qq_mapped(qq_no):
     global s
     try:
@@ -128,6 +130,7 @@ def del_qq_mapped(qq_no):
         s.close()
 
 
+# update
 def put_qq_mapped(qq_json):
     global s
     try:
@@ -154,6 +157,7 @@ def put_qq_mapped(qq_json):
         s.close()
 
 
+# create
 def post_qq_mapped(qq_json):
     global s
     try:
