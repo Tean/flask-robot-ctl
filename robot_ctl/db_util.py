@@ -7,8 +7,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-import monitor_logger
-from monitor.model import QQ, User
+from robot_ctl.logger import getLogger
+from robot_ctl.model import QQ, User
 
 config = {
     'host': 'localhost',
@@ -23,7 +23,8 @@ db_url = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
 
 select_qq_list = 'select * from qq_list'
 select_qq_by_no = 'select * from qq_list where qq_no = %s limit 1'
-logger = monitor_logger.get_logger(__name__)
+
+logger = getLogger(__name__)
 
 
 # get database connection using mysql.connector

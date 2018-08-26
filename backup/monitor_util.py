@@ -9,7 +9,6 @@ from sqlalchemy.sql import select
 
 import monitor_db
 import monitor_logger
-import monitor_util
 
 Base = declarative_base()
 

@@ -1,7 +1,7 @@
 from flask import Flask
 
-from monitor import api, model, login_manager
-from monitor.page import robot_blueprint
+from robot_ctl import api, model, login_manager
+from robot_ctl.page import robot_blueprint
 
 app = Flask(__name__)
 

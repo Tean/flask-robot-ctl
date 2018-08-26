@@ -1,0 +1,831 @@
+2018-08-23 23:01:10,953 DEBUG   : request_loader url is http://127.0.0.1:9000/, request args is ImmutableMultiDict([])
+2018-08-23 23:01:10,953 DEBUG   : Authorization is None
+2018-08-23 23:01:10,980 DEBUG   : login get method
+2018-08-23 23:01:19,088 DEBUG   : login post method
+2018-08-23 23:01:19,167 DEBUG   : Exception is (pymysql.err.OperationalError) (1045, u"Access denied for user 'tester'@'localhost' (using password: YES)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-08-23 23:01:19,167 DEBUG   : db user id is admin, detail is None
+2018-08-23 23:01:19,167 DEBUG   : error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2018-08-23 23:01:22,247 DEBUG   : login get method
+2018-08-23 23:08:37,815 DEBUG   : request_loader url is http://127.0.0.1:9000/, request args is ImmutableMultiDict([])
+2018-08-23 23:08:37,815 DEBUG   : Authorization is None
+2018-08-23 23:08:37,823 DEBUG   : login get method
+2018-08-23 23:08:43,142 DEBUG   : login post method
+2018-08-23 23:08:43,186 DEBUG   : Exception is (pymysql.err.OperationalError) (1045, u"Access denied for user 'tester'@'localhost' (using password: YES)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-08-23 23:08:43,187 DEBUG   : db user id is admin, detail is None
+2018-08-23 23:08:43,187 DEBUG   : error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2018-08-23 23:08:44,980 DEBUG   : login get method
+2018-08-24 01:25:04,592 DEBUG   : login get method
+2018-08-24 01:25:08,908 DEBUG   : login post method
+2018-08-24 01:25:09,026 DEBUG   : Exception is (pymysql.err.OperationalError) (1045, u"Access denied for user 'tester'@'localhost' (using password: YES)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-08-24 01:25:09,026 DEBUG   : db user id is admin, detail is None
+2018-08-24 01:25:09,026 DEBUG   : error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2018-08-24 01:37:40,769 DEBUG   : login get method
+2018-08-24 01:37:43,505 DEBUG   : login post method
+2018-08-24 01:37:43,509 DEBUG   : Exception is (pymysql.err.InternalError) (1049, u"Unknown database 'robot_ctl'") (Background on this error at: http://sqlalche.me/e/2j85)
+2018-08-24 01:37:43,509 DEBUG   : db user id is admin, detail is None
+2018-08-24 01:37:43,509 DEBUG   : error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2018-08-24 01:38:57,719 DEBUG   : login get method
+2018-08-24 01:39:00,303 DEBUG   : login post method
+2018-08-24 01:39:00,319 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.admin, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-24 01:39:00,319 DEBUG   : next is None
+2018-08-24 01:39:00,342 DEBUG   : next url is None:
+2018-08-24 01:39:00,348 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-24 01:39:00,348 DEBUG   : index page, method is GET
+2018-08-24 01:39:00,536 DEBUG   : get_list: page = 1, limit = 5
+2018-08-24 01:39:00,536 DEBUG   : get_monitor_flask_sqlalchemy: page is 1, limit is 5
+2018-08-24 01:39:00,536 DEBUG   : Exception in get_monitor_flask_sqlalchemy 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2018-08-24 01:39:02,865 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-24 01:39:02,867 DEBUG   : logout page
+2018-08-24 01:39:02,871 DEBUG   : login get method
+2018-08-24 01:39:02,871 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-24 01:39:02,871 DEBUG   : Authorization is None
+2018-08-25 01:40:09,467 DEBUG   : Exception is (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([Errno 10061] )") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-08-25 01:40:55,888 DEBUG   : request_loader url is http://127.0.0.1:9000/, request args is ImmutableMultiDict([])
+2018-08-25 01:40:55,890 DEBUG   : Authorization is None
+2018-08-25 01:40:55,907 DEBUG   : login get method
+2018-08-25 01:41:16,766 DEBUG   : login post method
+2018-08-25 01:41:16,822 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.admin, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-25 01:41:16,822 DEBUG   : next is /
+2018-08-25 01:41:16,844 DEBUG   : next url is /:
+2018-08-25 01:41:16,855 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 01:41:16,855 DEBUG   : index page, method is GET
+2018-08-25 01:41:17,040 DEBUG   : get_list: page = 1, limit = 5
+2018-08-25 01:41:17,040 DEBUG   : get_monitor_flask_sqlalchemy: page is 1, limit is 5
+2018-08-25 01:41:17,042 DEBUG   : Exception in get_monitor_flask_sqlalchemy 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2018-08-25 01:41:37,767 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 01:41:37,769 DEBUG   : logout page
+2018-08-25 01:41:37,778 DEBUG   : login get method
+2018-08-25 01:41:37,778 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-25 01:41:37,778 DEBUG   : Authorization is None
+2018-08-25 01:42:17,983 DEBUG   : Exception is (1054, u"Unknown column 'user_id' in 'where clause'")
+2018-08-25 01:43:56,970 DEBUG   : Exception is (1054, u"Unknown column 'usename' in 'where clause'")
+2018-08-25 01:44:03,463 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000003DB09E8>
+2018-08-25 01:44:43,380 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000003C409E8>
+2018-08-25 01:48:26,938 DEBUG   : conn is <pymysql.connections.Connection object at 0x00000000041B51D0>
+2018-08-25 01:48:26,938 DEBUG   : Exception is not all arguments converted during string formatting
+2018-08-25 01:48:58,953 DEBUG   : conn is <pymysql.connections.Connection object at 0x00000000045951D0>
+2018-08-25 01:48:58,953 DEBUG   : Exception is not all arguments converted during string formatting
+2018-08-25 01:49:29,180 DEBUG   : conn is <pymysql.connections.Connection object at 0x000000000534EDA0>
+2018-08-25 01:50:13,150 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004AC5198>
+2018-08-25 01:50:13,150 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004AC5198>
+2018-08-25 01:51:26,911 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004A2A1D0>
+2018-08-25 01:51:26,913 DEBUG   : Exception is (1064, u"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%s limit 1' at line 1")
+2018-08-25 01:51:45,872 DEBUG   : conn is <pymysql.connections.Connection object at 0x000000000472A1D0>
+2018-08-25 01:51:45,874 DEBUG   : conn is <pymysql.connections.Connection object at 0x000000000472A1D0>
+2018-08-25 01:52:14,121 DEBUG   : conn is <pymysql.connections.Connection object at 0x00000000040FA1D0>
+2018-08-25 01:52:14,122 DEBUG   : conn is <pymysql.connections.Connection object at 0x00000000040FA1D0>
+2018-08-25 01:52:33,845 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004E23DD8>
+2018-08-25 01:52:33,845 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004E23DD8>
+2018-08-25 01:54:01,270 DEBUG   : request_loader url is http://127.0.0.1:9000/api, request args is ImmutableMultiDict([])
+2018-08-25 01:54:01,270 DEBUG   : Authorization is None
+2018-08-25 01:54:01,276 DEBUG   : login get method
+2018-08-25 01:54:18,148 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 01:54:41,423 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004AC35F8>
+2018-08-25 01:54:41,424 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004AC35F8>
+2018-08-25 01:54:41,456 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 01:55:46,792 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004B75438>
+2018-08-25 01:55:46,792 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004B75438>
+2018-08-25 01:55:46,808 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 01:55:50,542 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004B756D8>
+2018-08-25 01:55:50,543 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004B756D8>
+2018-08-25 01:55:50,571 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 01:55:56,513 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004DBABE0>
+2018-08-25 01:55:59,411 DEBUG   : conn is <pymysql.connections.Connection object at 0x0000000004DBABE0>
+2018-08-25 01:57:48,240 DEBUG   : Exception is Entity '<class 'monitor_user.User'>' has no property 'qq_no'
+2018-08-25 01:58:34,641 DEBUG   : Exception is 'module' object has no attribute 'qq'
+2018-08-25 01:59:00,990 DEBUG   : Exception is Entity '<class 'monitor.qq.QQ'>' has no property 'qq_no'
+2018-08-25 01:59:36,051 DEBUG   : Exception is Entity '<class 'monitor.qq.QQ'>' has no property 'qq_no'
+2018-08-25 02:00:33,858 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:03:24,418 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:04:02,640 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:06:30,663 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:08:44,414 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:10:06,530 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:11:57,305 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:11:58,259 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:13:06,828 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:15:30,377 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:16:44,851 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:16:59,244 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:17:01,163 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:17:06,848 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:18:50,155 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:19:17,976 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:19:52,911 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:26:47,088 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:27:11,595 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:27:12,607 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:30:32,336 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:31:04,599 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:31:08,395 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:31:35,960 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:32:00,723 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:32:23,556 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 02:43:44,496 DEBUG   : Exception is __init__() takes exactly 6 arguments (1 given)
+2018-08-25 02:44:25,704 DEBUG   : Exception is __init__() takes exactly 6 arguments (1 given)
+2018-08-25 02:47:31,418 DEBUG   : Exception is 'qq_no'
+2018-08-25 02:48:02,049 DEBUG   : Exception is 'qq_no'
+2018-08-25 03:22:07,608 DEBUG   : Exception is update() takes at least 2 arguments (1 given)
+2018-08-25 03:23:16,644 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:23:26,038 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:23:37,664 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:23:50,584 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:25:24,035 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:27:57,779 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:38:52,065 DEBUG   : Exception is need more than 1 value to unpack
+2018-08-25 03:40:24,098 DEBUG   : Exception is 'IdentitySet' object is not callable
+2018-08-25 03:48:25,269 DEBUG   : Exception is 'NoneType' object has no attribute 'id'
+2018-08-25 03:50:31,944 DEBUG   : Exception is filter() got an unexpected keyword argument 'qq_no'
+2018-08-25 03:51:33,217 DEBUG   : Exception is 'NoneType' object has no attribute 'id'
+2018-08-25 20:45:58,000 DEBUG   : get_list: page = None, limit = None
+2018-08-25 20:45:58,013 DEBUG   : get_monitor_flask_sqlalchemy: page is 0, limit is 5
+2018-08-25 20:45:58,015 DEBUG   : Exception in get_monitor_flask_sqlalchemy 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2018-08-25 20:45:58,056 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:46:30,313 DEBUG   : login get method
+2018-08-25 20:51:04,417 DEBUG   : login get method
+2018-08-25 20:51:08,466 DEBUG   : login post method
+2018-08-25 20:51:10,648 DEBUG   : Exception is (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([Errno 10061] )") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-08-25 20:51:10,648 DEBUG   : db user id is admin, detail is None
+2018-08-25 20:51:10,648 DEBUG   : error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2018-08-25 20:51:12,322 DEBUG   : login get method
+2018-08-25 20:51:48,529 DEBUG   : login post method
+2018-08-25 20:51:48,594 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-25 20:51:48,594 DEBUG   : next is None
+2018-08-25 20:51:48,617 DEBUG   : next url is None:
+2018-08-25 20:51:48,627 DEBUG   : next url is None:
+2018-08-25 20:51:48,628 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:51:48,647 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:51:48,648 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:51:48,648 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:51:48,648 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:51:48,694 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:51:48,694 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:51:53,986 DEBUG   : login get method
+2018-08-25 20:51:53,986 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:51:55,332 DEBUG   : login get method
+2018-08-25 20:51:55,332 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:00,065 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:00,065 DEBUG   : index page, method is GET
+2018-08-25 20:52:00,194 DEBUG   : get_list: page = 1, limit = 5
+2018-08-25 20:52:00,194 DEBUG   : get_monitor_flask_sqlalchemy: page is 1, limit is 5
+2018-08-25 20:52:00,196 DEBUG   : Exception in get_monitor_flask_sqlalchemy 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2018-08-25 20:52:02,098 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:02,098 DEBUG   : logout page
+2018-08-25 20:52:02,105 DEBUG   : login get method
+2018-08-25 20:52:02,105 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-25 20:52:02,105 DEBUG   : Authorization is None
+2018-08-25 20:52:07,153 DEBUG   : next url is None:
+2018-08-25 20:52:07,154 DEBUG   : request_loader url is http://127.0.0.1:9000/robot/index, request args is ImmutableMultiDict([])
+2018-08-25 20:52:07,154 DEBUG   : Authorization is None
+2018-08-25 20:52:07,168 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:07,171 DEBUG   : request_loader url is http://127.0.0.1:9000/robot/main.css, request args is ImmutableMultiDict([])
+2018-08-25 20:52:07,171 DEBUG   : Authorization is None
+2018-08-25 20:52:07,171 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:07,174 DEBUG   : request_loader url is http://127.0.0.1:9000/robot/action.js, request args is ImmutableMultiDict([])
+2018-08-25 20:52:07,174 DEBUG   : Authorization is None
+2018-08-25 20:52:07,187 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:07,188 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-25 20:52:07,188 DEBUG   : Authorization is None
+2018-08-25 20:52:11,322 DEBUG   : next url is None:
+2018-08-25 20:52:11,322 DEBUG   : request_loader url is http://127.0.0.1:9000/robot, request args is ImmutableMultiDict([])
+2018-08-25 20:52:11,323 DEBUG   : Authorization is None
+2018-08-25 20:52:11,341 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:11,342 DEBUG   : request_loader url is http://127.0.0.1:9000/main.css, request args is ImmutableMultiDict([])
+2018-08-25 20:52:11,342 DEBUG   : Authorization is None
+2018-08-25 20:52:11,348 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:11,348 DEBUG   : request_loader url is http://127.0.0.1:9000/action.js, request args is ImmutableMultiDict([])
+2018-08-25 20:52:11,348 DEBUG   : Authorization is None
+2018-08-25 20:52:11,364 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:11,365 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-25 20:52:11,365 DEBUG   : Authorization is None
+2018-08-25 20:52:29,101 DEBUG   : request_loader url is http://127.0.0.1:9000/robot, request args is ImmutableMultiDict([])
+2018-08-25 20:52:29,101 DEBUG   : Authorization is None
+2018-08-25 20:52:29,105 DEBUG   : login get method
+2018-08-25 20:52:29,107 DEBUG   : request_loader url is http://127.0.0.1:9000/login?next=%2Frobot, request args is ImmutableMultiDict([('next', u'/robot')])
+2018-08-25 20:52:29,107 DEBUG   : Authorization is None
+2018-08-25 20:52:34,122 DEBUG   : login post method
+2018-08-25 20:52:34,165 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-25 20:52:34,165 DEBUG   : next is /robot
+2018-08-25 20:52:34,174 DEBUG   : next url is /robot:
+2018-08-25 20:52:34,178 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:34,180 DEBUG   : next url is None:
+2018-08-25 20:52:34,200 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:34,200 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:34,201 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:34,201 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:34,226 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:34,226 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:40,548 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:40,549 DEBUG   : next url is None:
+2018-08-25 20:52:40,569 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:40,569 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:40,573 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:40,575 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 20:52:40,594 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 20:52:40,594 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:46,926 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:46,927 DEBUG   : next url is None:
+2018-08-25 21:04:46,951 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:46,951 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:47,174 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:47,174 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:47,180 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:47,181 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:49,690 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:49,690 DEBUG   : next url is None:
+2018-08-25 21:04:49,706 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:49,707 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:49,707 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:49,710 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:49,726 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:49,726 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:51,276 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:51,276 DEBUG   : next url is None:
+2018-08-25 21:04:51,306 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:51,308 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:51,309 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:51,311 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:51,332 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:51,332 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:04:58,249 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:04:58,250 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:41,444 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:41,444 DEBUG   : next url is None:
+2018-08-25 21:05:41,460 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:41,460 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:41,476 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:41,476 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:41,552 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:41,552 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:44,334 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:44,334 DEBUG   : next url is None:
+2018-08-25 21:05:44,351 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:44,351 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:44,355 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:44,355 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:44,408 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:44,410 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:50,710 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:50,710 DEBUG   : next url is None:
+2018-08-25 21:05:50,742 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:50,742 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:50,749 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:50,750 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:50,799 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:50,799 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:51,828 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:51,828 DEBUG   : next url is None:
+2018-08-25 21:05:51,852 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:51,852 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:51,857 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:51,858 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:05:51,904 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:05:51,904 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:05,046 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:05,048 DEBUG   : next url is None:
+2018-08-25 21:06:05,069 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:05,069 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:05,075 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:05,076 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:05,124 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:05,124 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:06,247 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:06,247 DEBUG   : next url is None:
+2018-08-25 21:06:06,273 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:06,273 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:06,276 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:06,278 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:06,322 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:06,322 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:17,726 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:17,726 DEBUG   : next url is None:
+2018-08-25 21:06:17,747 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:17,750 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:17,752 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:17,753 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:17,822 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:17,823 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:18,723 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:18,723 DEBUG   : next url is None:
+2018-08-25 21:06:18,739 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:18,739 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:18,750 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:18,752 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:18,798 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:18,798 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,118 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,119 DEBUG   : next url is None:
+2018-08-25 21:06:21,150 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,151 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,368 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,368 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,380 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,381 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,844 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,844 DEBUG   : next url is None:
+2018-08-25 21:06:21,861 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,861 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,867 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,867 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:21,921 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:21,921 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:23,118 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:23,118 DEBUG   : next url is None:
+2018-08-25 21:06:23,131 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:23,131 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:23,134 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:23,135 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:23,187 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:23,188 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:44,061 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:44,062 DEBUG   : next url is None:
+2018-08-25 21:06:44,091 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:44,091 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:44,098 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:44,098 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:44,151 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:44,153 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:45,076 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:45,078 DEBUG   : next url is None:
+2018-08-25 21:06:45,108 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:45,108 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:45,109 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:45,111 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:45,150 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:45,150 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:56,713 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:56,713 DEBUG   : next url is None:
+2018-08-25 21:06:56,733 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:56,734 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:56,740 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:56,742 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:56,792 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:56,793 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:57,792 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:57,792 DEBUG   : next url is None:
+2018-08-25 21:06:57,808 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:57,809 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:57,811 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:57,812 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:06:57,854 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:06:57,854 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:16,520 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:16,522 DEBUG   : next url is None:
+2018-08-25 21:07:16,551 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:16,552 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:16,553 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:16,555 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:16,611 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:16,611 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:17,631 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:17,631 DEBUG   : next url is None:
+2018-08-25 21:07:17,642 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:17,644 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:17,648 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:17,648 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:17,696 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:17,696 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,328 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,329 DEBUG   : next url is None:
+2018-08-25 21:07:18,355 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,357 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,362 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,364 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,408 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,408 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,549 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,551 DEBUG   : next url is None:
+2018-08-25 21:07:18,562 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,562 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,566 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,566 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,615 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,615 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,839 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,839 DEBUG   : next url is None:
+2018-08-25 21:07:18,852 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,852 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,868 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,868 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:18,910 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:18,910 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:31,959 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:31,960 DEBUG   : next url is None:
+2018-08-25 21:07:31,994 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:31,996 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:31,996 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:31,999 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:07:32,056 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:07:32,056 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:54,917 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:54,917 DEBUG   : next url is None:
+2018-08-25 21:08:54,950 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:54,950 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:54,950 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:54,951 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:55,006 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:55,006 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:56,621 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:56,622 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:57,338 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:57,338 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:08:57,895 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:08:57,895 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:35,940 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:35,940 DEBUG   : next url is None:
+2018-08-25 21:10:35,970 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:35,970 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:35,970 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:35,973 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:36,030 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:36,030 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:36,931 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:36,931 DEBUG   : next url is None:
+2018-08-25 21:10:36,953 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:36,953 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:36,953 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:36,954 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:36,997 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:36,999 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:37,973 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:37,973 DEBUG   : next url is None:
+2018-08-25 21:10:37,994 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:37,996 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:37,999 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:37,999 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:10:38,039 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:10:38,040 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:11:58,517 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:11:58,517 DEBUG   : next url is None:
+2018-08-25 21:11:58,540 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:11:58,542 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:11:58,543 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:11:58,545 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:11:58,588 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:11:58,589 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:06,464 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:06,466 DEBUG   : next url is None:
+2018-08-25 21:12:06,486 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:06,489 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:06,492 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:06,493 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:06,538 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:06,539 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:41,757 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:41,759 DEBUG   : next url is None:
+2018-08-25 21:12:41,780 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:41,782 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:41,783 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:41,785 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:41,848 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:41,849 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:46,664 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:46,664 DEBUG   : next url is None:
+2018-08-25 21:12:46,677 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:46,677 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:46,683 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:46,683 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:12:46,732 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:12:46,732 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:24,483 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:24,483 DEBUG   : next url is None:
+2018-08-25 21:13:24,509 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:24,509 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:24,516 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:24,517 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:24,575 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:24,576 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:27,302 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:27,302 DEBUG   : next url is None:
+2018-08-25 21:13:27,313 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:27,315 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:27,319 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:27,319 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:13:27,365 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:13:27,365 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:12,602 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:12,602 DEBUG   : next url is None:
+2018-08-25 21:14:12,644 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:12,644 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:12,644 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:12,645 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:12,697 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:12,698 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:13,607 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:13,608 DEBUG   : next url is None:
+2018-08-25 21:14:13,632 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:13,634 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:13,637 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:13,638 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:13,683 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:13,683 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:42,244 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:42,246 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:14:46,030 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:14:46,030 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:12,598 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:12,598 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:14,661 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:14,661 DEBUG   : next url is None:
+2018-08-25 21:15:14,678 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:14,678 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:14,683 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:14,683 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:14,740 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:14,740 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:19,601 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:19,601 DEBUG   : next url is None:
+2018-08-25 21:15:21,940 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:21,940 DEBUG   : next url is None:
+2018-08-25 21:15:23,069 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:23,069 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:36,651 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:36,651 DEBUG   : next url is None:
+2018-08-25 21:15:43,780 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:43,780 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:44,611 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:44,611 DEBUG   : next url is None:
+2018-08-25 21:15:45,362 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:45,364 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:53,799 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:53,799 DEBUG   : next url is None:
+2018-08-25 21:15:54,767 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:54,767 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:56,960 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:15:56,960 DEBUG   : next url is None:
+2018-08-25 21:15:57,667 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:15:57,667 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:16:18,494 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:16:18,494 DEBUG   : next url is None:
+2018-08-25 21:16:19,256 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:16:19,256 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:17:08,618 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:17:08,619 DEBUG   : next url is None:
+2018-08-25 21:17:09,375 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:17:09,375 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:05,053 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:05,053 DEBUG   : next url is None:
+2018-08-25 21:21:06,355 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:21:06,357 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:06,960 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:06,960 DEBUG   : next url is None:
+2018-08-25 21:21:07,730 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:21:07,732 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:08,602 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:08,602 DEBUG   : next url is None:
+2018-08-25 21:21:11,348 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:21:11,348 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:15,509 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:15,509 DEBUG   : next url is None:
+2018-08-25 21:21:16,957 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:21:16,957 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:31,611 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:21:31,611 DEBUG   : next url is None:
+2018-08-25 21:21:32,555 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:21:32,555 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:06,601 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:06,601 DEBUG   : next url is None:
+2018-08-25 21:24:07,348 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:24:07,349 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:08,055 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:08,056 DEBUG   : next url is None:
+2018-08-25 21:24:08,769 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:24:08,770 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:09,674 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:09,676 DEBUG   : next url is None:
+2018-08-25 21:24:12,403 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:24:12,404 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:28,920 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:28,920 DEBUG   : next url is None:
+2018-08-25 21:24:31,306 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:24:31,308 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:31,881 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:24:31,882 DEBUG   : next url is None:
+2018-08-25 21:24:32,881 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:24:32,881 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:26:20,164 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:26:20,164 DEBUG   : next url is None:
+2018-08-25 21:26:20,973 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:26:20,973 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:26:21,979 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:26:21,980 DEBUG   : next url is None:
+2018-08-25 21:26:22,595 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:26:22,596 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:27:34,165 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:27:34,167 DEBUG   : next url is None:
+2018-08-25 21:27:34,977 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:27:34,979 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:27:35,832 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:27:35,832 DEBUG   : next url is None:
+2018-08-25 21:27:36,575 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:27:36,576 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:28:21,951 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:28:21,953 DEBUG   : next url is None:
+2018-08-25 21:28:22,834 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:28:22,835 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:28:52,398 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:28:52,398 DEBUG   : next url is None:
+2018-08-25 21:28:53,206 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:28:53,207 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:09,140 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:09,141 DEBUG   : next url is None:
+2018-08-25 21:30:09,207 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:30:09,209 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:17,973 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:17,974 DEBUG   : next url is None:
+2018-08-25 21:30:18,799 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:30:18,802 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:18,930 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:30:18,930 DEBUG   : next url is None:
+2018-08-25 21:30:18,990 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:30:18,990 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:35,769 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:35,770 DEBUG   : next url is None:
+2018-08-25 21:31:35,852 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:31:35,854 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:46,325 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:46,326 DEBUG   : next url is None:
+2018-08-25 21:31:46,403 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:31:46,404 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:56,187 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:56,188 DEBUG   : next url is None:
+2018-08-25 21:31:56,270 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:31:56,273 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:31:58,115 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:31:58,115 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:33:55,065 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:33:55,065 DEBUG   : next url is None:
+2018-08-25 21:33:55,138 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:33:55,138 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:33:56,440 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:33:56,440 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:33:56,440 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:33:56,441 DEBUG   : logout page
+2018-08-25 21:33:56,466 DEBUG   : login get method
+2018-08-25 21:33:56,467 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-25 21:33:56,467 DEBUG   : Authorization is None
+2018-08-25 21:33:56,529 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:33:56,529 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:33:56,530 DEBUG   : Authorization is None
+2018-08-25 21:34:00,059 DEBUG   : login post method
+2018-08-25 21:34:00,144 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-25 21:34:00,144 DEBUG   : next is None
+2018-08-25 21:34:00,161 DEBUG   : next url is None:
+2018-08-25 21:34:00,170 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:34:00,171 DEBUG   : next url is None:
+2018-08-25 21:34:00,273 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:00,275 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:34:02,438 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:34:02,440 DEBUG   : logout page
+2018-08-25 21:34:02,446 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:02,447 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:34:02,470 DEBUG   : login get method
+2018-08-25 21:34:02,471 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-25 21:34:02,473 DEBUG   : Authorization is None
+2018-08-25 21:34:02,538 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:02,539 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:02,539 DEBUG   : Authorization is None
+2018-08-25 21:34:04,039 DEBUG   : request_loader url is http://127.0.0.1:9000/robot/index, request args is ImmutableMultiDict([])
+2018-08-25 21:34:04,039 DEBUG   : Authorization is None
+2018-08-25 21:34:04,049 DEBUG   : login get method
+2018-08-25 21:34:04,049 DEBUG   : request_loader url is http://127.0.0.1:9000/login?next=%2Frobot%2Findex, request args is ImmutableMultiDict([('next', u'/robot/index')])
+2018-08-25 21:34:04,049 DEBUG   : Authorization is None
+2018-08-25 21:34:04,102 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:04,105 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:04,105 DEBUG   : Authorization is None
+2018-08-25 21:34:05,881 DEBUG   : request_loader url is http://127.0.0.1:9000/robot/index, request args is ImmutableMultiDict([])
+2018-08-25 21:34:05,881 DEBUG   : Authorization is None
+2018-08-25 21:34:05,891 DEBUG   : login get method
+2018-08-25 21:34:05,891 DEBUG   : request_loader url is http://127.0.0.1:9000/login?next=%2Frobot%2Findex, request args is ImmutableMultiDict([('next', u'/robot/index')])
+2018-08-25 21:34:05,891 DEBUG   : Authorization is None
+2018-08-25 21:34:05,938 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:05,940 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:05,941 DEBUG   : Authorization is None
+2018-08-25 21:34:06,813 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:06,816 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:06,816 DEBUG   : Authorization is None
+2018-08-25 21:34:06,946 DEBUG   : login get method
+2018-08-25 21:34:06,947 DEBUG   : request_loader url is http://127.0.0.1:9000/login, request args is ImmutableMultiDict([])
+2018-08-25 21:34:06,947 DEBUG   : Authorization is None
+2018-08-25 21:34:06,989 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:06,990 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:06,990 DEBUG   : Authorization is None
+2018-08-25 21:34:13,109 DEBUG   : request_loader url is http://127.0.0.1:9000/robot, request args is ImmutableMultiDict([])
+2018-08-25 21:34:13,111 DEBUG   : Authorization is None
+2018-08-25 21:34:13,121 DEBUG   : login get method
+2018-08-25 21:34:13,121 DEBUG   : request_loader url is http://127.0.0.1:9000/login?next=%2Frobot, request args is ImmutableMultiDict([('next', u'/robot')])
+2018-08-25 21:34:13,121 DEBUG   : Authorization is None
+2018-08-25 21:34:13,174 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:13,176 DEBUG   : request_loader url is http://127.0.0.1:9000/static/js/jquery.min.map, request args is ImmutableMultiDict([])
+2018-08-25 21:34:13,177 DEBUG   : Authorization is None
+2018-08-25 21:34:17,140 DEBUG   : login post method
+2018-08-25 21:34:17,161 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-25 21:34:17,163 DEBUG   : next is /robot
+2018-08-25 21:34:17,164 DEBUG   : next url is /robot:
+2018-08-25 21:34:17,174 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-25 21:34:17,174 DEBUG   : next url is None:
+2018-08-25 21:34:17,247 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-25 21:34:17,249 DEBUG   : user_loader user is admin, is_authenticated True
+2018-08-26 17:14:10,038 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:14:10,079 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:14:10,079 DEBUG   : Authorization is None
+2018-08-26 17:14:25,776 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:14:25,776 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:14:25,776 DEBUG   : Authorization is None
+2018-08-26 17:14:32,678 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:14:32,678 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:14:32,680 DEBUG   : Authorization is None
+2018-08-26 17:16:32,378 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:16:32,391 DEBUG   : request_loader url is http://127.0.0.1:9000/api/qq/page/1, request args is ImmutableMultiDict([])
+2018-08-26 17:16:32,391 DEBUG   : Authorization is None
+2018-08-26 17:16:45,253 DEBUG   : Exception is 'Query' object has no attribute 'pagenate'
+2018-08-26 17:16:45,270 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:16:45,273 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:16:45,273 DEBUG   : Authorization is None
+2018-08-26 17:17:22,845 DEBUG   : Exception is 'Query' object has no attribute 'paginate'
+2018-08-26 17:17:22,862 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:17:22,874 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:17:22,874 DEBUG   : Authorization is None
+2018-08-26 17:17:24,016 DEBUG   : Exception is 'Query' object has no attribute 'paginate'
+2018-08-26 17:17:24,032 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:17:24,032 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:17:24,033 DEBUG   : Authorization is None
+2018-08-26 17:17:25,289 DEBUG   : Exception is 'Query' object has no attribute 'paginate'
+2018-08-26 17:17:25,312 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:17:25,312 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:17:25,312 DEBUG   : Authorization is None
+2018-08-26 17:19:08,209 DEBUG   : Exception is 'Query' object has no attribute 'paginate'
+2018-08-26 17:19:08,230 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:19:08,232 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:19:08,232 DEBUG   : Authorization is None
+2018-08-26 17:26:19,378 DEBUG   : Exception is type object 'QQ' has no attribute 'query'
+2018-08-26 17:26:19,529 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:26:19,542 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:26:19,542 DEBUG   : Authorization is None
+2018-08-26 17:26:21,188 DEBUG   : Exception is type object 'QQ' has no attribute 'query'
+2018-08-26 17:26:21,203 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:26:21,206 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:26:21,206 DEBUG   : Authorization is None
+2018-08-26 17:28:57,663 DEBUG   : Exception is 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2018-08-26 17:28:57,678 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:28:57,690 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:28:57,690 DEBUG   : Authorization is None
+2018-08-26 17:38:39,788 DEBUG   : Exception is type object 'QQ' has no attribute 'query'
+2018-08-26 17:38:39,805 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:38:39,815 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:38:39,815 DEBUG   : Authorization is None
+2018-08-26 17:38:41,559 DEBUG   : Exception is type object 'QQ' has no attribute 'query'
+2018-08-26 17:38:41,572 DEBUG   : error occurred: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2018-08-26 17:38:41,572 DEBUG   : request_loader url is http://127.0.0.1:9000/favicon.ico, request args is ImmutableMultiDict([])
+2018-08-26 17:38:41,573 DEBUG   : Authorization is None
+2018-08-26 18:01:24,378 DEBUG   : Exception is unsupported operand type(s) for -: 'unicode' and 'int'
+2018-08-26 18:01:35,365 DEBUG   : Exception is unsupported operand type(s) for -: 'unicode' and 'int'
+2018-08-26 18:01:55,098 DEBUG   : Exception is unsupported operand type(s) for -: 'unicode' and 'int'
+2018-08-26 18:02:28,193 DEBUG   : Exception is unsupported operand type(s) for -: 'unicode' and 'int'
+2018-08-26 18:03:52,934 DEBUG   : Exception is 'module' object has no attribute 'encode'
+2018-08-26 18:21:24,290 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:21:24,290 DEBUG   : next is None
+2018-08-26 18:23:29,740 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:23:29,740 DEBUG   : next is None
+2018-08-26 18:23:33,362 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:23:33,362 DEBUG   : next is None
+2018-08-26 18:26:46,200 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:26:46,200 DEBUG   : next is None
+2018-08-26 18:26:46,229 DEBUG   : next url is None:
+2018-08-26 18:29:27,739 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:29:27,739 DEBUG   : next is None
+2018-08-26 18:29:27,755 DEBUG   : next url is None:
+2018-08-26 18:31:08,456 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:31:08,456 DEBUG   : next is None
+2018-08-26 18:31:08,457 DEBUG   : next url is None:
+2018-08-26 18:31:31,010 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:31:31,012 DEBUG   : next is None
+2018-08-26 18:31:35,954 DEBUG   : next url is None:
+2018-08-26 18:32:59,148 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:32:59,148 DEBUG   : next is None
+2018-08-26 18:33:02,690 DEBUG   : next url is None:
+2018-08-26 18:36:22,690 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:36:22,690 DEBUG   : next is None
+2018-08-26 18:36:22,707 DEBUG   : next url is None:
+2018-08-26 18:36:22,723 DEBUG   : next url is None:
+2018-08-26 18:36:44,808 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:36:44,809 DEBUG   : next is None
+2018-08-26 18:36:44,825 DEBUG   : next url is None:
+2018-08-26 18:36:44,842 DEBUG   : next url is None:
+2018-08-26 18:37:29,933 DEBUG   : next url is None:
+2018-08-26 18:37:34,096 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:37:34,098 DEBUG   : next is None
+2018-08-26 18:37:34,114 DEBUG   : next url is None:
+2018-08-26 18:37:34,131 DEBUG   : next url is None:
+2018-08-26 18:37:55,119 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:37:55,121 DEBUG   : next is None
+2018-08-26 18:37:55,138 DEBUG   : next url is None:
+2018-08-26 18:37:55,157 DEBUG   : next url is None:
+2018-08-26 18:38:13,503 DEBUG   : next url is None:
+2018-08-26 18:39:14,953 DEBUG   : next url is None:
+2018-08-26 18:40:03,346 DEBUG   : logout page
+2018-08-26 18:40:07,509 DEBUG   : db user id is admin, detail is <id is 1, username is admin, password is 123, email is admin@admin.adminx, create time is 2018-08-24 00:27:00, update time is 2018-08-24 00:00:00>
+2018-08-26 18:40:07,509 DEBUG   : next is None
+2018-08-26 18:40:07,526 DEBUG   : next url is None:
+2018-08-26 18:40:07,533 DEBUG   : next url is None:
+2018-08-26 18:40:09,058 DEBUG   : logout page

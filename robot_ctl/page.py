@@ -3,12 +3,12 @@ from flask import request, make_response, render_template, url_for, Blueprint
 from flask_restful import abort
 from werkzeug.utils import redirect
 
-from monitor import monitor_logger
-from monitor.db_util import get_user_session
-from monitor.login_manager import User
-from monitor.monitor_main import is_safe_url
+from robot_ctl.db_util import get_user_session
+from robot_ctl.logger import getLogger
+from robot_ctl.login_manager import User
+from backup.monitor_main import is_safe_url
 
-logger = monitor_logger.get_logger(__name__)
+logger = getLogger(__name__)
 
 robot_blueprint = Blueprint('page', __name__, template_folder='templates')
 
