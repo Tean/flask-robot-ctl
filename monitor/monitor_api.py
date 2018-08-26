@@ -12,8 +12,8 @@ from flask_restful.reqparse import RequestParser
 # 使用Flask-RESTful构建REST API
 # http://flask-restful.readthedocs.io/en/latest/
 # https://www.codementor.io/sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq
-from monitor.db_util import get_qq, get_qq_mapped, get_qq_list_mapped, post_qq_mapped, del_qq_mapped, put_qq_mapped
-from monitor.qq import QQEncoder
+from monitor.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, del_qq_mapped, post_qq_mapped, put_qq_mapped
+from monitor.model import QQEncoder
 
 
 class MonitorApi(Resource):
@@ -55,6 +55,12 @@ class QQList(Resource):
     def post(self, id):
         db[id] = parser.parse_args()
         return '', 202
+
+
+class QQPage(Resource):
+    def get(self, page, size=10):
+        qqs = get_qq_page(page, size)
+        return jsonify(json.dumps(qqs, cls=QQEncoder))
 
 
 class QQByNo(Resource):

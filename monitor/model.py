@@ -1,14 +1,17 @@
+from datetime import date, datetime
 import json
-from datetime import datetime, date
 
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+db = SQLAlchemy()
 
 
-# http://docs.sqlalchemy.org/en/latest/orm/mapping_columns.html
-class QQ(Base):
+def init_app(app):
+    return db.init_app(app)
+
+
+class QQ(db.Model):
     __tablename__ = 'qq_list'
 
     id = Column('id', Integer, primary_key=True)
@@ -41,3 +44,26 @@ class QQEncoder(json.JSONEncoder):
                     'update_time': obj.update_time}
         else:
             return json.JSONEncoder.default(self, obj)
+
+
+class User(db.Model):
+    __tablename__ = 'user'
+
+    id = Column('id', Integer, primary_key=True)
+    username = Column('username', String(128))
+    email = Column('email', String(128))
+    password = Column('password', String(128))
+    create_time = Column('create_time', String(128))
+    update_time = Column('update_time', String(128))
+
+    def __init__(self, id, username, email, password, create_time, update_time):
+        self.id = id
+        self.username = username
+        self.email = email
+        self.password = password
+        self.create_time = create_time
+        self.update_time = update_time
+
+    def __repr__(self):
+        return '<id is %s, username is %s, password is %s, email is %s, create time is %s, update time is %s>' % (
+            self.id, self.username, self.password, self.email, self.create_time, self.update_time)

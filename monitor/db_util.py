@@ -8,7 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 import monitor_logger
-from monitor.qq import QQ
+from monitor.model import QQ, User
 
 config = {
     'host': 'localhost',
@@ -18,6 +18,7 @@ config = {
     'database': 'robot_ctl',
     'charset': 'utf8'
 }
+
 db_url = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
 
 select_qq_list = 'select * from qq_list'
@@ -180,6 +181,20 @@ def post_qq_mapped(qq_json):
         s.close()
 
 
+def get_user_session(user_id):
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = s.query(User).filter_by(username=user_id).first()
+        return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        return None
+
+
 def get_qq_list_mapped():
     global s
     try:
@@ -190,6 +205,28 @@ def get_qq_list_mapped():
         s = session()
         ret = s.query(QQ).all()
         return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        # s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# page
+def get_qq_page(page, size):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        # ret = s.query(QQ).all();
+        p = int(page)
+        l = int(size)
+        ret = QQ.query.paginate(p, l, False)
+        return ret.items
     except Exception as e:
         logger.debug("Exception is %s" % e)
         # s.rollback()

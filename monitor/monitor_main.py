@@ -4,18 +4,18 @@ import json
 import os
 import random
 import time
-from datetime import timedelta
 
 import flask_login
-import monitor_api
-import monitor_db
-import monitor_logger
-import monitor_util
 from flask import Flask, redirect, url_for, request, render_template, make_response, abort, jsonify, \
     send_from_directory
 from flask_login import LoginManager
 from flask_restful import Api
 from flask_uploads import UploadSet, configure_uploads
+
+import monitor_api
+import monitor_db
+import monitor_logger
+import monitor_util
 from monitor_admin import admin
 from monitor_resource import monitor_resource
 
@@ -30,6 +30,8 @@ logger = monitor_logger.get_logger(__name__)
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app.config['UPLOAD_PATH'] = 'upload'
 
+app.config['SQLALCHEMY_DATABASE_URI'] = ''
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['UPLOADS_DEFAULT_DEST'] = app.config['UPLOAD_PATH']
 app.config['UPLOADS_DEFAULT_URL'] = 'http://127.0.0.1:9000/'
 uploaded_photos = UploadSet()
@@ -40,6 +42,7 @@ api.add_resource(monitor_api.Acts, '/api/acts')
 api.add_resource(monitor_api.QQList, '/api/qq/list')
 api.add_resource(monitor_api.QQByNo, '/api/qq/<qq_no>')
 api.add_resource(monitor_api.QQAdd, '/api/qq')
+api.add_resource(monitor_api.QQPage, '/api/qq/page/<page>/size/<size>')
 api.add_resource(monitor_api.Act3, '/api/wx/<id>')
 
 app.register_blueprint(monitor_resource)
@@ -125,16 +128,6 @@ def error(e):
     except Exception as e:
         logger.debug('exception is %s' % e)
         return render_template('error.html')
-
-
-@app.route('/robot', methods=['GET'])
-@app.route('/robot/index', methods=['GET'])
-@flask_login.login_required
-def robot():
-    next_url = request.args.get("next")
-    if not is_safe_url(next_url):
-        return abort(400)
-    return render_template('robot/index.html', name=flask_login.current_user.id)
 
 
 @app.route('/login', methods=['GET', 'POST'])
