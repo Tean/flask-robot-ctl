@@ -1,8 +1,10 @@
 # logs
 robot_ctl/logs/
+monitor/logs/
 
 # upload
 robot_ctl/upload/
+monitor/upload/
 
 .idea/
 venv/
