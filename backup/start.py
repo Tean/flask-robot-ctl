@@ -93,7 +93,7 @@ def logout():
     # remove the username from the session if it's there
     logger.debug("logout page")
     session.pop('username', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('/login'))
 
 
 @app.route('/hello')

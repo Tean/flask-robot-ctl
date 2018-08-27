@@ -47,37 +47,8 @@
                 <li>
                     <div class="litem">新闻资讯</div>
                 </li>
-                <li>
-                    体育竞技
-                </li>
-                <li>
-                    娱乐八卦
-                </li>
-                <li>
-                    前沿科技
-                </li>
-                <li>
-                    环球财经
-                </li>
-                <li>
-                    天气预报
-                </li>
-                <li>
-                    房产家居
-                </li>
-                <li>
-                    网络游戏
-                </li>
             </ul>
-            {#
-            {% for post in posts.items %}
-            <p>
-                {{post.author.nickname}} says: <b>{{post.body}}</b>
-            </p>
-            {% endfor %}
-            {% if posts.has_prev %}<a href="{{ url_for('index', page = posts.prev_num) }}"><< Newer posts</a>{% else %}<< Newer posts{% endif %} |
-            {% if posts.has_next %}<a href="{{ url_for('index', page = posts.next_num) }}">Older posts >></a>{% else %}Older posts >>{% endif %}
-            #}
+            <div class="pagefoot"></div>
         </div>
         <div class="col-sm-4">
             <ul>
@@ -138,6 +109,7 @@
     </div>
 </div>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/robot_action.js') }}" type="text/javascript"></script>
 </body>
 

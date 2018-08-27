@@ -13,3 +13,19 @@ body {
 .breadcrumb > .active {
   color: #777;
 }
+
+.first {
+    float: left;
+}
+.prev {
+    float: left;
+}
+.pageNoBlock {
+    float: left;
+}
+.next {
+    float: left;
+}
+.last {
+    float: left;
+}

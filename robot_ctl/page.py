@@ -3,7 +3,8 @@ from flask import request, make_response, render_template, url_for, Blueprint
 from flask_restful import abort
 from werkzeug.utils import redirect
 
-from robot_ctl.db_util import get_user_session
+from robot_ctl.api import ApiRequest
+from robot_ctl.db_util import get_user_session, get_qq_page
 from robot_ctl.logger import getLogger
 from robot_ctl.login_manager import User
 from backup.monitor_main import is_safe_url
@@ -52,7 +53,10 @@ def robot():
     next_url = request.args.get("next")
     if not is_safe_url(next_url):
         return abort(400)
-    return render_template('robot/index.html', name=flask_login.current_user.id)
+    index = 1
+    size = 10
+    qqs = get_qq_page(index, size)
+    return render_template('robot/index.html', name=flask_login.current_user.id, qqs=qqs)
 
 
 @robot_blueprint.route('/logout')

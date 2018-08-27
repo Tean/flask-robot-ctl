@@ -227,7 +227,9 @@ def get_qq_page(page, size):
         p = int(page)
         l = int(size)
         ret = QQ.query.paginate(p, l, False)
-        return ret.items
+        pages = ret.pages
+        current = ret.page
+        return ret.items, current, pages
     except Exception as e:
         logger.debug("Exception is %s" % e)
         # s.rollback()

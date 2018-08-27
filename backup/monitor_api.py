@@ -12,7 +12,8 @@ from flask_restful.reqparse import RequestParser
 # 使用Flask-RESTful构建REST API
 # http://flask-restful.readthedocs.io/en/latest/
 # https://www.codementor.io/sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq
-from robot_ctl.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, del_qq_mapped, post_qq_mapped, put_qq_mapped
+from robot_ctl.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, del_qq_mapped, post_qq_mapped, \
+    put_qq_mapped
 from robot_ctl.model import QQEncoder
 
 
