@@ -32,7 +32,48 @@ class QQ(db.Model):
             self.id, self.qq_no, self.password, self.create_time, self.update_time)
 
 
+class Wx(db.Model):
+    __tablename__ = 'wx_list'
+
+    id = Column('id', Integer, primary_key=True)
+    wx_no = Column('wx_no', String(20))
+    wx_name = Column('wx_name', String(20))
+    password = Column('password', String(128))
+    create_time = Column('create_time', String(128))
+    update_time = Column('update_time', String(128))
+
+    def __init__(self, id, wx_no, wx_name, password, create_time, update_time):
+        self.id = id
+        self.wx_no = wx_no
+        self.wx_name = wx_name
+        self.password = password
+        self.create_time = create_time
+        self.update_time = update_time
+
+    def __repr__(self):
+        return '<id is %s, wx_no is %s, wx_name is %s, password is %s, create time is %s, update time is %s>' % (
+            self.id, self.qq_no, self.wx_name, self.password, self.create_time, self.update_time)
+
+
 class Generator:
+    @staticmethod
+    def makeWx(wx):
+        return {
+            'id': wx.id,
+            'wx_no': wx.wx_no,
+            'wx_name': wx.wx_name,
+            'password': wx.password,
+            'create_time': wx.create_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'update_time': wx.update_time.strftime('%Y-%m-%d %H:%M:%S'),
+        }
+
+    @staticmethod
+    def makeWxList(wxs):
+        list = []
+        for wx in wxs:
+            list.append(Generator.makeWx(wx))
+        return list
+
     @staticmethod
     def makeQQ(qq):
         return {

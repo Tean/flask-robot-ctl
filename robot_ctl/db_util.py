@@ -8,7 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 from robot_ctl.logger import getLogger
-from robot_ctl.model import QQ, User
+from robot_ctl.model import QQ, User, Wx
 
 config = {
     'host': 'localhost',
@@ -90,7 +90,7 @@ def get_qq_list():
 Base = declarative_base()
 
 
-# for login
+# for QQ
 # SQLAlchemy orm
 # retrieve
 def get_qq_mapped(qq_no):
@@ -111,6 +111,8 @@ def get_qq_mapped(qq_no):
         s.close()
 
 
+# for QQ
+# SQLAlchemy orm
 # delete
 def del_qq_mapped(qq_no):
     global s
@@ -132,6 +134,8 @@ def del_qq_mapped(qq_no):
         s.close()
 
 
+# for QQ
+# SQLAlchemy orm
 # update
 def put_qq_mapped(qq_json):
     global s
@@ -142,11 +146,16 @@ def put_qq_mapped(qq_json):
         Base.metadata.create_all(engine)
         qq_obj = json.loads(qq_json)
         s = session()
-        updates = json.dumps(qq_obj)
-        ret = s.query(QQ).filter_by(qq_no=qq_obj['qq_no']).first()
+        ret = s.query(QQ).filter_by(id=qq_obj['id']).first()
         if ret is not None:
+            modified = False
+            if qq_obj['qq_no'] is not None:
+                ret.qq_no = qq_obj['qq_no']
+                modified = True
             if qq_obj['password'] is not None:
                 ret.password = qq_obj['password']
+                modified = True
+            if modified:
                 ret.update_time = datetime.datetime.now()
         s.add(ret)
         s.commit()
@@ -159,6 +168,8 @@ def put_qq_mapped(qq_json):
         s.close()
 
 
+# for QQ
+# SQLAlchemy orm
 # create
 def post_qq_mapped(qq_json):
     global s
@@ -182,20 +193,9 @@ def post_qq_mapped(qq_json):
         s.close()
 
 
-def get_user_session(user_id):
-    try:
-        engine = create_engine(db_url, echo=True)
-        session = sessionmaker()
-        session.configure(bind=engine)
-        Base.metadata.create_all(engine)
-        s = session()
-        ret = s.query(User).filter_by(username=user_id).first()
-        return ret
-    except Exception as e:
-        logger.debug("Exception is %s" % e)
-        return None
-
-
+# for QQ
+# SQLAlchemy orm
+# retrieve list
 def get_qq_list_mapped():
     global s
     try:
@@ -214,7 +214,9 @@ def get_qq_list_mapped():
         s.close()
 
 
-# page
+# for QQ
+# SQLAlchemy orm
+# retrieve page
 def get_qq_page(page, size):
     global s
     try:
@@ -236,6 +238,173 @@ def get_qq_page(page, size):
         return None
     finally:
         s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# retrieve
+def get_wx_mapped(wx_no):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = s.query(Wx).filter_by(wx_no=wx_no).first()
+        return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        # s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# delete
+def del_wx_mapped(wx_no):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = s.query(Wx).filter_by(wx_no=wx_no).first()
+        s.delete(ret)
+        s.commit()
+        return ret.id
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# update
+def put_wx_mapped(wx_json):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        wx_obj = json.loads(wx_json)
+        s = session()
+        ret = s.query(Wx).filter_by(id=wx_obj['id']).first()
+        if ret is not None:
+            modified = False
+            if wx_obj['wx_no'] is not None:
+                ret.wx_no = wx_obj['wx_no']
+                modified = True
+            if wx_obj['wx_name'] is not None:
+                ret.wx_name = wx_obj['wx_name']
+                modified = True
+            if wx_obj['password'] is not None:
+                ret.password = wx_obj['password']
+                modified = True
+            if modified:
+                ret.update_time = datetime.datetime.now()
+        s.add(ret)
+        s.commit()
+        return ret.id
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# create
+def post_wx_mapped(wx_json):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        wx_obj = json.loads(wx_json)
+        s = session()
+        now = datetime.datetime.now()
+        wx = Wx(-1, wx_obj['qq_no'], wx_obj['password'], now, now)
+        s.add(wx)
+        ret = s.commit()
+        return ret.id
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# retrieve list
+def get_wx_list_mapped():
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = s.query(Wx).all()
+        return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        # s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for WX
+# SQLAlchemy orm
+# retrieve page
+def get_wx_page(page, size):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        # ret = s.query(QQ).all();
+        p = int(page)
+        l = int(size)
+        ret = Wx.query.paginate(p, l, False)
+        pages = ret.pages
+        current = ret.page
+        return ret.items, current, pages
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        # s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+def get_user_session(user_id):
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = s.query(User).filter_by(username=user_id).first()
+        return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        return None
 
 
 # get connection session
