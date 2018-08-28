@@ -8,6 +8,7 @@ from robot_ctl.db_util import get_user_session, get_qq_page
 from robot_ctl.logger import getLogger
 from robot_ctl.login_manager import User
 from backup.monitor_main import is_safe_url
+from robot_ctl.model import QQ
 
 logger = getLogger(__name__)
 
@@ -66,3 +67,19 @@ def logout():
     logger.debug("logout page")
     flask_login.logout_user()
     return redirect(url_for('page.login'))
+
+
+@robot_blueprint.route('/', methods=['GET', 'POST'])
+@robot_blueprint.route('/index', methods=['GET', 'POST'])
+@robot_blueprint.route('/index/<int:qqpage>', methods=['GET', 'POST'])
+@flask_login.login_required
+def index(qqpage=1):
+    s = request.args.get('size')
+    print(str.format('{}:{}', qqpage, s))
+    if s is None:
+        s = 10
+    qqs = get_qq_page(qqpage, s)
+    qqlist = qqs[0]
+    index = qqs[1]
+    pages = qqs[2]
+    return render_template('home.html', qqlist=qqlist, pages=pages, page_num=index, size=s)

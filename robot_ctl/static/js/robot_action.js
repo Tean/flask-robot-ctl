@@ -10,7 +10,12 @@
         window.location.href = '/logout';
     }
 
-    exp.makePageFoot = function(current, pages) {
+    exp.makePageFoot = function(current, pages, pageVars) {
+        if(pageVars==null) {
+            pageVars=[];
+            for(var i=0;i<pages;i++)
+                pageVars.push(i);
+        }
         var foot = $('.pagefoot');
         foot.empty();
         //first
@@ -20,63 +25,25 @@
         //prev
         var prev = $('<div class="prev">')
         if(current > 1) {
-            prev.append('<a href="javascript:ex.makePageFoot('+(current-1)+','+pages+')">上一页</a>');
+            prev.append('<a href="javascript:ex.last()">上一页</a>');
         }else{
             prev.append('<span>上一页</span>') ;
         }
         foot.append(prev);
 
-        if(pages>5){
-            var displayPN = 3
-            if(current>displayPN) {
-                var pageNoBlock = $('<div class="pageNoBlock">')
-                var pageSpan = $('<span>');
-                pageSpan.text('.');
-                pageNoBlock.append(pageSpan);
-                foot.append(pageNoBlock);
-            }
-            var prevPN = 1;
-            if(current >= pages)
-                prevPN = 2;
-            var nextPN=1;
-            if(current <=0)
-                nextPN=2;
-            for(var i=current-prevPN;i<current+prevPN;i++) {
-                if(i>0 && i<=pages) {
-                    var pageNoBlock = $('<div class="pageNoBlock">');
-                    var pageSpan = $('<span>');
-                    if(current == i){
-                        pageSpan = $('<a href="#">'+i+'/</a>');
-                    }else{
-                        pageSpan.text(i+'/');
-                    }
-                    pageNoBlock.append(pageSpan);
-                    foot.append(pageNoBlock);
-                }
-            }
-
-            if(current>pages-displayPN) {
-                var pageNoBlock = $('<div class="pageNoBlock">')
-                var pageSpan = $('<span>');
-                pageSpan.text('.');
-                pageNoBlock.append(pageSpan);
-                foot.append(pageNoBlock);
-            }
-        }else{
-            for(var i=1;i<=pages;i++) {
-                var pageNoBlock = $('<div class="pageNoBlock">')
-                var pageSpan = $('<span>');
-                pageSpan.text(i);
-                pageNoBlock.append(pageSpan);
-                foot.append(pageNoBlock);
-            }
+        for(var i=1;i<=pages;i++) {
+            var pageNoBlock = $('<div class="pageNoBlock">')
+            var pageSpan = $('<span>');
+            pageSpan.text(pageVars[i]);
+            pageNoBlock.append(pageSpan);
+            foot.append(pageNoBlock);
         }
 
         //next
         var next = $('<div class="next">');
         console.log(current);
         if(current < pages) {
-            next.append('<a href="javascript:ex.makePageFoot('+(current+1)+','+pages+')">下一页</a>');
+            next.append('<a href="javascript:ex.next()">下一页</a>');
         }else{
             next.append('<span>下一页</span>') ;
         }
@@ -88,5 +55,29 @@
     }
 })();
 
-ex.makePageFoot(1,10);
+$(document).ready(function() {
+    ex.makePageFoot(1,10,['a','b','c','d','e','f','g','h','i','j']);
+    var pgn = new Pagination($('#qqpage'),10);
+    pgn.render(function(event){
+        var ul_div = event.udiv;
+        ul_div.empty();
+        var ul = $('<ul class="nop QQul">');
+        var index = event.json.index;
+        var pages = event.json.pages;
+        var items = event.json.items;
+
+        items.forEach(item => {
+            var li = $('<li id="'+item.id+'" class="QQli">');
+            var QQicon = $('<div class="QQicon">');
+            li.append(QQicon);
+            var QQNo = $('<div class="QQNo">');
+            QQNo.text(item.qq_no);
+            li.append(QQNo);
+            console.log(JSON.stringify(item));
+            ul.append(li);
+        });
+        ul_div.append(ul);
+    });
+    pgn.navi_to('/api/qq/page/2?size='+pgn.size);
+});
 console.log(ex.make())
