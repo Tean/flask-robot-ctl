@@ -77,6 +77,7 @@
 
 $(document).ready(function () {
     // ex.makePageFoot(1, 10, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']);
+    //TODO: 完成隐藏分页数过大的问题
     ex.makePage($('#qqpage'), '/api/qq/page/<index>?size=<size>',
         function (event, pgn, pgnid) {
             var ul_div = event.udiv;
