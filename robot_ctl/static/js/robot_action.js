@@ -77,7 +77,29 @@
 
 $(document).ready(function () {
     // ex.makePageFoot(1, 10, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']);
-    //TODO: 完成隐藏分页数过大的问题
+    var makePageHtml = function (text, pgnid, pageindex, pagesize, disabled = false, active = false) {
+        var link = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + pageindex + ',' + pagesize + ');">').text(text);
+        var li = $('<li>').append(link);
+        if (disabled) {
+            if (!active)
+                li.addClass('disabled');
+            link.addClass('disabled');
+            link.prop('disabled', true);
+        }
+        if (active)
+            li.addClass('active')
+        return li;
+    };
+    var makePageHtmlSpan = function (text, disabled = true) {
+        var link = $('<a class="btn" href="#">').text(text);
+        var li = $('<li>').append(link);
+        if (disabled) {
+            li.addClass('disabled');
+            link.addClass('disabled');
+            link.prop('disabled', true);
+        }
+        return li;
+    };
     ex.makePage($('#qqpage'), '/api/qq/page/<index>?size=<size>',
         function (event, pgn, pgnid) {
             var ul_div = event.udiv;
@@ -89,7 +111,8 @@ $(document).ready(function () {
             pgn.re_paginate(index, pages);
 
             items.forEach(item => {
-                var li = $('<li id="' + item.id + '" class="QQli">');
+                var li = $('<li class="QQli">');
+                li.attr('data-id', item.id);
                 var QQicon = $('<div class="QQicon">');
                 li.append(QQicon);
                 var QQNo = $('<div class="QQNo">');
@@ -101,34 +124,92 @@ $(document).ready(function () {
             ul_div.append(ul);
 
             var footer = $('<ul class="pagination">');
-            var prevtext = '上一页';
-            var prevlink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + (index - 1) + ',' + pgn.size + ');">').text(prevtext);
-            var prev = $('<li>').append(prevlink);
-            if (index <= 1) {
-                prev.addClass('disabled');
-                prevlink.addClass('disabled');
-                prevlink.prop('disabled', true);
-            }
-            footer.append(prev);
-            for (var i = 1; i <= pages; i++) {
-                var plink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + i + ',' + pgn.size + ');">').text(i);
-                var p = $('<li>').append(plink);
-                if (i == index) {
-                    p.addClass('active');
-                    plink.addClass('disabled');
-                    plink.prop('disabled', true);
+
+            if (pages > 7) {
+                if (index > 1) {
+                    var elem = makePageHtml('1', pgnid, 1, pgn.size, index <= 1);
+                    footer.append(elem);
                 }
-                footer.append(p);
+
+                if ((index > 3 && index < pages) || index > 3) {
+                    var elem = makePageHtmlSpan('...');
+                    footer.append(elem);
+                }
+
+                if (index > pages - 1) {
+                    var to = index - 4;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > pages - 2) {
+                    var to = index - 3;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > pages - 3) {
+                    var to = index - 2;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > 2) {
+                    var to = index - 1;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                var elem = makePageHtml(index + '', pgnid, index, pgn.size, true, true);
+                footer.append(elem);
+
+                if (index < pages - 1) {
+                    var to = index + 1;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 4) {
+                    var to = index + 2;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 3) {
+                    var to = index + 3;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 2) {
+                    var to = index + 4;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if ((index < pages - 2 && index > 1) || pages > index + 3) {
+                    var elem = makePageHtmlSpan('...');
+                    footer.append(elem);
+                }
+
+                if (index < pages) {
+                    var to = pages;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+            } else {
+                for (var i = 1; i <= pages; i++) {
+                    var to = i;
+                    if (i == index) {
+                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, false, true);
+                        footer.append(elem);
+                    } else {
+                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, false);
+                        footer.append(elem);
+                    }
+                }
             }
-            var nexttext = '下一页'
-            var nextlink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + (index + 1) + ',' + pgn.size + ');">').text(nexttext);
-            var next = $('<li>').append(nextlink);
-            if (index >= pages) {
-                next.addClass('disabled');
-                nextlink.addClass('disabled');
-                nextlink.prop('disabled', true);
-            }
-            footer.append(next);
+
             ul_div.append(footer);
         });
     ex.makePage($('#wxpage'), '/api/wx/page/<index>?size=<size>',
@@ -142,7 +223,8 @@ $(document).ready(function () {
             pgn.re_paginate(index, pages);
 
             items.forEach(item => {
-                var li = $('<li id="' + item.id + '" class="QQli">');
+                var li = $('<li class="QQli">');
+                li.attr('data-id', item.id);
                 var QQicon = $('<div class="QQicon">');
                 li.append(QQicon);
                 var QQNo = $('<div class="QQNo">');
@@ -154,34 +236,92 @@ $(document).ready(function () {
             ul_div.append(ul);
 
             var footer = $('<ul class="pagination">');
-            var prevtext = '上一页';
-            var prevlink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + (index - 1) + ',' + pgn.size + ');">').text(prevtext);
-            var prev = $('<li>').append(prevlink);
-            if (index <= 1) {
-                prev.addClass('disabled');
-                prevlink.addClass('disabled');
-                prevlink.prop('disabled', true);
-            }
-            footer.append(prev);
-            for (var i = 1; i <= pages; i++) {
-                var plink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + i + ',' + pgn.size + ');">').text(i);
-                var p = $('<li>').append(plink);
-                if (i == index) {
-                    p.addClass('active');
-                    plink.addClass('disabled');
-                    plink.prop('disabled', true);
+
+            if (pages > 7) {
+                if (index > 1) {
+                    var elem = makePageHtml('1', pgnid, 1, pgn.size, index <= 1);
+                    footer.append(elem);
                 }
-                footer.append(p);
+
+                if ((index > 3 && index < pages) || index > 3) {
+                    var elem = makePageHtmlSpan('...');
+                    footer.append(elem);
+                }
+
+                if (index > pages - 1) {
+                    var to = index - 4;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > pages - 2) {
+                    var to = index - 3;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > pages - 3) {
+                    var to = index - 2;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                if (index > 2) {
+                    var to = index - 1;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
+                    footer.append(elem);
+                }
+
+                var elem = makePageHtml(index + '', pgnid, index, pgn.size, true, true);
+                footer.append(elem);
+
+                if (index < pages - 1) {
+                    var to = index + 1;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 4) {
+                    var to = index + 2;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 3) {
+                    var to = index + 3;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if (index < 2) {
+                    var to = index + 4;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+
+                if ((index < pages - 2 && index > 1) || pages > index + 3) {
+                    var elem = makePageHtmlSpan('...');
+                    footer.append(elem);
+                }
+
+                if (index < pages) {
+                    var to = pages;
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                    footer.append(elem);
+                }
+            } else {
+                for (var i = 1; i <= pages; i++) {
+                    var to = i;
+                    if (i == index) {
+                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages, true);
+                        footer.append(elem);
+                    } else {
+                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
+                        footer.append(elem);
+                    }
+                }
             }
-            var nexttext = '下一页'
-            var nextlink = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + (index + 1) + ',' + pgn.size + ');">').text(nexttext);
-            var next = $('<li>').append(nextlink);
-            if (index >= pages) {
-                next.addClass('disabled');
-                nextlink.addClass('disabled');
-                nextlink.prop('disabled', true);
-            }
-            footer.append(next);
+
             ul_div.append(footer);
         });
 });
