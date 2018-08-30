@@ -5,6 +5,7 @@ flask-sqlalchemy-web
 ## 增加Add Modal弹框
 ### 待完善：
     提交到api
+    删除行为
 
 # 2018-08-30 18:26:40
 ## 实现分页功能
