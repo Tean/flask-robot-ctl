@@ -11,3 +11,5 @@ flask-sqlalchemy-web
 
 # 2018-8-31 01:30:01
 ## 增加Add Modal弹框
+### 待完善：
+    提交到api
