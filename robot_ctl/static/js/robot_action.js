@@ -1,11 +1,30 @@
 (function () {
     var exp = {};
+    window.ex = exp;
     var name = "x";
     exp.pgn_list = {};
     exp.make = function () {
-        return name;
+        var modal = $('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">');
+        var modal_dialog = $('<div class="modal-dialog">');
+        var modal_content = $('<div class="modal-content">');
+        var modal_head = $('<div class="modal-header">');
+        var modal_title = $('<h4 class="modal-title" id="myModalLabel">').text('模态框（Modal）标题');
+        modal_head.append(modal_title);
+        var button_colse = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">').text('x');
+        modal_head.append(button_colse);
+        modal_content.append(modal_head);
+        var modal_body = $('<div class = "modal-body">').text('在这里添加一些文本');
+        modal_content.append(modal_body);
+        var modal_foot = $('<div class="modal-footer">');
+        var modal_footer_button_close = $('<button type="button" class="btn btn-default" data-dismiss="modal">').text('关闭');
+        modal_foot.append(modal_footer_button_close);
+        var modal_footer_button_submit = $('<button type="button" class="btn btn-primary">').text('提交更改');
+        modal_foot.append(modal_footer_button_submit);
+        modal_content.append(modal_foot);
+        modal_dialog.append(modal_content);
+        modal.append(modal_dialog);
+        $('#preload').append(modal);
     };
-    window.ex = exp;
 
     exp.logout = function () {
         window.location.href = '/logout';
@@ -104,6 +123,35 @@ $(document).ready(function () {
         function (event, pgn, pgnid) {
             var ul_div = event.udiv;
             ul_div.empty();
+            var manage = $('<div class="row" id="manage">');
+            var add = $('<div class="col-sm-6">');
+            add.append($('<button class="btn btn-primary btn-lg">').text('Add'));
+            add.on('click', function () {
+                var body = $('#myModal').find('div.modal-body');
+                body.find('input#qqno').remove();
+                var qqnoinput = $('<input id="qqno">');
+                body.append(qqnoinput);
+                console.log(body.html());
+                $('#myModal').attr('hidePageid', pgnid);
+
+                $('#myModal').modal({
+                    keyboard: true
+                });
+                $(document).off('click', '#myModal div.modal-footer button.btn.btn-primary');
+                $(document).on('click', '#myModal div.modal-footer button.btn.btn-primary', function (e) {
+                    $('#myModal').modal('hide');
+                    var hidpgid = $('#myModal').attr('hidePageid');
+                    var text = $('#myModal button.btn-primary').text();
+                    var body = $('#myModal').find('div.modal-body');
+                    var input = body.find('input#qqno').val();
+                    console.log('submit ' + hidpgid + ":" + text + ":" + input);
+                });
+            });
+            manage.append(add);
+            var del = $('<div class="col-sm-6">');
+            del.append($('<a class="btn btn-primary btn-lg">').text('Del'));
+            manage.append(del);
+            ul_div.append(manage);
             var ul = $('<ul class="nop QQul">');
             var index = event.json.index;
             var pages = event.json.pages;
@@ -203,7 +251,7 @@ $(document).ready(function () {
                     var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
                     footer.append(elem);
                 }
-                if(pages==0) {
+                if (pages == 0) {
                     var elem = makePageHtml('N', pgnid, to, pgn.size, true, false);
                     footer.append(elem);
                 }
@@ -315,13 +363,13 @@ $(document).ready(function () {
                     var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
                     footer.append(elem);
                 }
-                if(pages==0) {
-                    var elem = makePageHtml( 'N', pgnid, to, pgn.size, true, false);
+                if (pages == 0) {
+                    var elem = makePageHtml('N', pgnid, to, pgn.size, true, false);
                     footer.append(elem);
                 }
             }
 
             ul_div.append(footer);
         });
+    console.log(ex.make());
 });
-console.log(ex.make())

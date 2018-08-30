@@ -29,3 +29,4 @@ robot_ctl/db_util.pyc
 robot_ctl/login_manager.pyc
 robot_ctl/model.pyc
 robot_ctl/page.pyc
+.vscode/

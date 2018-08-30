@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>RC UI</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap-grid.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/robot_page.css') }}" />
 </head>
 
 <body>
+    <div id='preload'></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-9">
@@ -45,11 +47,6 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <div id="qqmanage">
-                    <span>Add</span>
-                    <span>Edit</span>
-                    <span>Del</span>
-                </div>
                 <div id="qqpage"></div>
                 <div id="qqPagefoot" class="pagefoot"></div>
             </div>
