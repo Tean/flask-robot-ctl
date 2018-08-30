@@ -9,7 +9,10 @@ from flask_restful import Api, Resource, reqparse
 
 from robot_ctl.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, del_qq_mapped, post_qq_mapped, \
     put_qq_mapped, get_wx_list_mapped, get_wx_page, get_wx_mapped, del_wx_mapped, post_wx_mapped, put_wx_mapped
+from robot_ctl.logger import getLogger
 from robot_ctl.model import QQEncoder, Generator
+
+logger = getLogger(__name__)
 
 
 class ApiRequest:
@@ -66,9 +69,9 @@ class QQPage(Resource):
         data = self.parser.parse_args()
         size = data.get('size')
         qqs = get_qq_page(index, size)
-        qqlist = qqs[0]
-        index = qqs[1]
-        pages = qqs[2]
+        qqlist = qqs[0] if qqs is not None and qqs[0] is not None else []
+        index = qqs[1] if qqs is not None and qqs[1] is not None else 1
+        pages = qqs[2] if qqs is not None and qqs[2] is not None else 0
         lists = Generator.makeQQList(qqlist)
         ret = {'index': index, 'pages': pages, 'items': lists}
         return ret
@@ -114,9 +117,9 @@ class WxPage(Resource):
         data = self.parser.parse_args()
         size = data.get('size')
         wxs = get_wx_page(index, size)
-        wxlist = wxs[0]
-        index = wxs[1]
-        pages = wxs[2]
+        wxlist = wxs[0] if wxs is not None and wxs[0] is not None else []
+        index = wxs[1] if wxs is not None and wxs[1] is not None else 1
+        pages = wxs[2] if wxs is not None and wxs[2] is not None else 0
         lists = Generator.makeWxList(wxlist)
         ret = {'index': index, 'pages': pages, 'items': lists}
         return ret

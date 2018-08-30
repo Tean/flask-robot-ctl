@@ -4,7 +4,11 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
 
+from robot_ctl.logger import getLogger
+
 db = SQLAlchemy()
+
+logger = getLogger(__name__)
 
 
 def init_app(app):
@@ -52,11 +56,25 @@ class Wx(db.Model):
 
     def __repr__(self):
         return '<id is %s, wx_no is %s, wx_name is %s, password is %s, create time is %s, update time is %s>' % (
-            self.id, self.qq_no, self.wx_name, self.password, self.create_time, self.update_time)
+            self.id, self.wx_no, self.wx_name, self.password, self.create_time, self.update_time)
+
+
+def NoneWrap(_func_):
+    def inner(*args, **kwargs):  # 1
+        try:
+            print "Arguments were: %s, %s" % (args, kwargs)
+            ret = _func_(*args, **kwargs)  # 2
+            return ret
+        except Exception as e:
+            logger.debug('noneWrap:' + e.message)
+            return None
+
+    return inner
 
 
 class Generator:
     @staticmethod
+    @NoneWrap
     def makeWx(wx):
         return {
             'id': wx.id,
@@ -68,6 +86,7 @@ class Generator:
         }
 
     @staticmethod
+    @NoneWrap
     def makeWxList(wxs):
         list = []
         for wx in wxs:
@@ -75,6 +94,7 @@ class Generator:
         return list
 
     @staticmethod
+    @NoneWrap
     def makeQQ(qq):
         return {
             'id': qq.id,
@@ -85,6 +105,7 @@ class Generator:
         }
 
     @staticmethod
+    @NoneWrap
     def makeQQList(qqs):
         list = []
         for qq in qqs:
@@ -92,6 +113,7 @@ class Generator:
         return list
 
     @staticmethod
+    @NoneWrap
     def makeUser(user):
         return {
             'id': user.id,
@@ -102,6 +124,7 @@ class Generator:
         }
 
     @staticmethod
+    @NoneWrap
     def makeUserList(users):
         list = []
         for qq in users:

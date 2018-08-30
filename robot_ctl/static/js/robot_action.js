@@ -11,7 +11,7 @@
         window.location.href = '/logout';
     }
 
-    exp.makePageFoot = function (current, pages, pageVars) {
+    exp.makePageFootDeprecated = function (current, pages, pageVars) {
         if (pageVars == null) {
             pageVars = [];
             for (var i = 0; i < pages; i++)
@@ -200,13 +200,12 @@ $(document).ready(function () {
             } else {
                 for (var i = 1; i <= pages; i++) {
                     var to = i;
-                    if (i == index) {
-                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, false, true);
-                        footer.append(elem);
-                    } else {
-                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, false);
-                        footer.append(elem);
-                    }
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
+                    footer.append(elem);
+                }
+                if(pages==0) {
+                    var elem = makePageHtml('N', pgnid, to, pgn.size, true, false);
+                    footer.append(elem);
                 }
             }
 
@@ -220,6 +219,7 @@ $(document).ready(function () {
             var index = event.json.index;
             var pages = event.json.pages;
             var items = event.json.items;
+            console.log(event.json);
             pgn.re_paginate(index, pages);
 
             items.forEach(item => {
@@ -312,13 +312,12 @@ $(document).ready(function () {
             } else {
                 for (var i = 1; i <= pages; i++) {
                     var to = i;
-                    if (i == index) {
-                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages, true);
-                        footer.append(elem);
-                    } else {
-                        var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                        footer.append(elem);
-                    }
+                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
+                    footer.append(elem);
+                }
+                if(pages==0) {
+                    var elem = makePageHtml( 'N', pgnid, to, pgn.size, true, false);
+                    footer.append(elem);
                 }
             }
 
