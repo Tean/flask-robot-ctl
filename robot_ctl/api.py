@@ -8,7 +8,8 @@ from flask import jsonify, request
 from flask_restful import Api, Resource, reqparse
 
 from robot_ctl.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, del_qq_mapped, post_qq_mapped, \
-    put_qq_mapped, get_wx_list_mapped, get_wx_page, get_wx_mapped, del_wx_mapped, post_wx_mapped, put_wx_mapped
+    put_qq_mapped, get_wx_list_mapped, get_wx_page, get_wx_mapped, del_wx_mapped, post_wx_mapped, put_wx_mapped, \
+    del_qqlist_mapped, get_qq_nos_mapped
 from robot_ctl.logger import getLogger
 from robot_ctl.model import QQEncoder, Generator
 
@@ -28,6 +29,7 @@ def init_api(app):
     api.add_resource(ApiId, '/api/<id>')
     api.add_resource(ApiActs, '/api/acts')
     api.add_resource(QQList, '/api/qq/list')
+    api.add_resource(QQListParam, '/api/qq/list/<nos>')
     api.add_resource(QQByNo, '/api/qq/<qq_no>')
     api.add_resource(QQAdd, '/api/qq')
     api.add_resource(QQPage, '/api/qq/page/<index>')
@@ -54,10 +56,21 @@ class ApiActs(Resource):
 class QQList(Resource):
     def get(self):
         qqs = get_qq_list_mapped()
-        return jsonify(json.dumps(qqs))
+        return Generator.makeQQList(qqs)
 
-    def post(self, id):
-        return '', 202
+
+class QQListParam(Resource):
+    def get(self, nos):
+        qqs = get_qq_nos_mapped(nos)
+        return Generator.makeQQList(qqs)
+
+    def delete(self, nos):
+        # ret = del_qqlist_mapped(nos)
+        nolist = json.loads(nos);
+        # unbound method delete() must be called with QQByNo instance as first argument (got int instance instead)
+        for no in nolist:
+            QQByNo.delete(no)
+        return 200, ''
 
 
 class QQPage(Resource):
@@ -90,7 +103,12 @@ class QQByNo(Resource):
 class QQAdd(Resource):
     def post(self):
         jsn = request.json
-        ret = post_qq_mapped(jsn)
+        if jsn is None:
+            ret = request.values.to_dict()['qq']
+        else:
+            ret = jsn
+
+        ret = post_qq_mapped(ret)
         return jsonify(ret)
 
     def put(self):

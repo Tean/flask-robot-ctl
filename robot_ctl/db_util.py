@@ -136,6 +136,34 @@ def del_qq_mapped(qq_no):
 
 # for QQ
 # SQLAlchemy orm
+# delete
+def del_qqlist_mapped(qq_nos):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        filters = {
+            QQ.qq_no.in_(json.loads(qq_nos))
+        }
+        ret = QQ.query.filter(QQ.qq_no.in_(json.loads(qq_nos))).all()
+        # Object '<QQ at 0x64affd0>' is already attached to session '6' (this is '5')
+        for item in ret:
+            s.delete(item)
+        s.commit()
+        return ret.id
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for QQ
+# SQLAlchemy orm
 # update
 def put_qq_mapped(qq_json):
     global s
@@ -188,6 +216,27 @@ def post_qq_mapped(qq_json):
     except Exception as e:
         logger.debug("Exception is %s" % e)
         s.rollback()
+        return None
+    finally:
+        s.close()
+
+
+# for QQ
+# SQLAlchemy orm
+# retrieve list
+def get_qq_nos_mapped(nos):
+    global s
+    try:
+        engine = create_engine(db_url, echo=True)
+        session = sessionmaker()
+        session.configure(bind=engine)
+        Base.metadata.create_all(engine)
+        s = session()
+        ret = QQ.query.filter(QQ.qq_no.in_(json.loads(nos))).all()
+        return ret
+    except Exception as e:
+        logger.debug("Exception is %s" % e)
+        # s.rollback()
         return None
     finally:
         s.close()

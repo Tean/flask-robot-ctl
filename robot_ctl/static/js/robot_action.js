@@ -82,7 +82,7 @@
         pgn.render(function (event) {
             renderfc(event, pgn, pgnid)
         });
-        pgn.navi_to(1, pgn.size);
+        pgn.navi_to(1);
     }
 
     exp.to = function (pgnid, index, size) {
@@ -90,7 +90,7 @@
         var pgn = exp.pgn_list[pgnid];
         if (index < 1) index = 1;
         if (index > pgn.pages) index = pgn.pages;
-        pgn.navi_to(index, size);
+        pgn.navi_to(index);
     }
 })();
 
@@ -129,7 +129,7 @@ $(document).ready(function () {
             add.on('click', function () {
                 var body = $('#myModal').find('div.modal-body');
                 body.find('input#qqno').remove();
-                var qqnoinput = $('<input id="qqno">');
+                var qqnoinput = $('<input id="qqno">').val('{"qq_no":"1234567","password":"123123"}');
                 body.append(qqnoinput);
                 console.log(body.html());
                 $('#myModal').attr('hidePageid', pgnid);
@@ -145,11 +145,43 @@ $(document).ready(function () {
                     var body = $('#myModal').find('div.modal-body');
                     var input = body.find('input#qqno').val();
                     console.log('submit ' + hidpgid + ":" + text + ":" + input);
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        //                        contentType: "application/json; charset=utf-8",
+                        url: '/api/qq',
+                        data: {
+                            'qq': input
+                        },
+                        context: $('#myModal'),
+                        success: function (e) {
+                            pgn.navi_to(1);
+                        },
+                    });
                 });
             });
             manage.append(add);
             var del = $('<div class="col-sm-6">');
             del.append($('<a class="btn btn-primary btn-lg">').text('Del'));
+            del.on('click', function (e) {
+                var lis = $('#qqpage li input:checked').parent();
+                var del_nos = [];
+                for (var i = 0; i < lis.length; i++) {
+                    var li = lis[i];
+                    var value = $(li).find('input[data_value]').attr('data_value');
+                    del_nos.push(value);
+                }
+                $.ajax({
+                    type: 'delete',
+                    dataType: 'json',
+                    //                        contentType: "application/json; charset=utf-8",
+                    url: '/api/qq/list/[' + del_nos + ']',
+                    context: $('#myModal'),
+                    success: function (e) {
+                        pgn.navi_to(1);
+                    },
+                });
+            })
             manage.append(del);
             ul_div.append(manage);
             var ul = $('<ul class="nop QQul">');
@@ -166,6 +198,9 @@ $(document).ready(function () {
                 var QQNo = $('<div class="QQNo">');
                 QQNo.text(item.qq_no);
                 li.append(QQNo);
+                var checker = $('<input type="checkbox">').attr('data_value', item.qq_no);
+                // $('#qqpage li input:checked').parent();
+                li.append(checker);
                 // console.log(JSON.stringify(item));
                 ul.append(li);
             });

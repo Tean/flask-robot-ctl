@@ -28,13 +28,13 @@ function Pagination(ul_div, pagesize) {
         }
     };
 
-    this.navi_to = function (index, size) {
+    this.navi_to = function (index) {
         console.log(this.f_url);
         var pthis = this;
         console.log("f_url:" + this.f_url + ":" + index);
         var req_url = this.f_url.replace('<index>', index);
         console.log(req_url);
-        req_url = req_url.replace('<size>', size);
+        req_url = req_url.replace('<size>', this.size);
         console.log(req_url);
         $.get({
             url: req_url,
@@ -46,7 +46,7 @@ function Pagination(ul_div, pagesize) {
                 });
                 $(this).append($('<div>'));
             }
-        })
+        });
     }
 
     this.re_paginate = function (i, p) {
