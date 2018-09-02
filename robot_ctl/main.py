@@ -1,4 +1,9 @@
 from flask import Flask
+import sys
+
+# sys.path.append('D:\\Projects\\GitHub\\flask-robot-ctl')
+sys.path.append('..\\..\\flask-robot-ctl')
+sys.path.append('../../flask-robot-ctl')
 
 from robot_ctl import api, model, login_manager
 from robot_ctl.page import robot_blueprint
