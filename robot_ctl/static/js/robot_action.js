@@ -119,6 +119,94 @@ $(document).ready(function () {
         }
         return li;
     };
+    var makePageFooter = function (index, pages, size, pgnid) {
+        var footer = $('<ul class="pagination">');
+
+        if (pages > 7) {
+            if (index > 1) {
+                var elem = makePageHtml('1', pgnid, 1, size, index <= 1);
+                footer.append(elem);
+            }
+
+            if ((index > 3 && index < pages) || index > 3) {
+                var elem = makePageHtmlSpan('...');
+                footer.append(elem);
+            }
+
+            if (index > pages - 1) {
+                var to = index - 4;
+                var elem = makePageHtml(to + '', pgnid, to, size, index <= 1);
+                footer.append(elem);
+            }
+
+            if (index > pages - 2) {
+                var to = index - 3;
+                var elem = makePageHtml(to + '', pgnid, to, size, index <= 1);
+                footer.append(elem);
+            }
+
+            if (index > pages - 3) {
+                var to = index - 2;
+                var elem = makePageHtml(to + '', pgnid, to, size, index <= 1);
+                footer.append(elem);
+            }
+
+            if (index > 2) {
+                var to = index - 1;
+                var elem = makePageHtml(to + '', pgnid, to, size, index <= 1);
+                footer.append(elem);
+            }
+
+            var elem = makePageHtml(index + '', pgnid, index, size, true, true);
+            footer.append(elem);
+
+            if (index < pages - 1) {
+                var to = index + 1;
+                var elem = makePageHtml(to + '', pgnid, to, size, index >= pages);
+                footer.append(elem);
+            }
+
+            if (index < 4) {
+                var to = index + 2;
+                var elem = makePageHtml(to + '', pgnid, to, size, index >= pages);
+                footer.append(elem);
+            }
+
+            if (index < 3) {
+                var to = index + 3;
+                var elem = makePageHtml(to + '', pgnid, to, size, index >= pages);
+                footer.append(elem);
+            }
+
+            if (index < 2) {
+                var to = index + 4;
+                var elem = makePageHtml(to + '', pgnid, to, size, index >= pages);
+                footer.append(elem);
+            }
+
+            if ((index < pages - 2 && index > 1) || pages > index + 3) {
+                var elem = makePageHtmlSpan('...');
+                footer.append(elem);
+            }
+
+            if (index < pages) {
+                var to = pages;
+                var elem = makePageHtml(to + '', pgnid, to, size, index >= pages);
+                footer.append(elem);
+            }
+        } else {
+            for (var i = 1; i <= pages; i++) {
+                var to = i;
+                var elem = makePageHtml(to + '', pgnid, to, size, i == index, i == index);
+                footer.append(elem);
+            }
+            if (pages == 0) {
+                var elem = makePageHtml('N', pgnid, to, size, true, false);
+                footer.append(elem);
+            }
+        }
+        return footer;
+    }
     ex.makePage($('#qqpage'), '/api/qq/page/<index>?size=<size>',
         function (event, pgn, pgnid) {
             var ul_div = event.udiv;
@@ -206,91 +294,7 @@ $(document).ready(function () {
             });
             ul_div.append(ul);
 
-            var footer = $('<ul class="pagination">');
-
-            if (pages > 7) {
-                if (index > 1) {
-                    var elem = makePageHtml('1', pgnid, 1, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if ((index > 3 && index < pages) || index > 3) {
-                    var elem = makePageHtmlSpan('...');
-                    footer.append(elem);
-                }
-
-                if (index > pages - 1) {
-                    var to = index - 4;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > pages - 2) {
-                    var to = index - 3;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > pages - 3) {
-                    var to = index - 2;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > 2) {
-                    var to = index - 1;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                var elem = makePageHtml(index + '', pgnid, index, pgn.size, true, true);
-                footer.append(elem);
-
-                if (index < pages - 1) {
-                    var to = index + 1;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 4) {
-                    var to = index + 2;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 3) {
-                    var to = index + 3;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 2) {
-                    var to = index + 4;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if ((index < pages - 2 && index > 1) || pages > index + 3) {
-                    var elem = makePageHtmlSpan('...');
-                    footer.append(elem);
-                }
-
-                if (index < pages) {
-                    var to = pages;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-            } else {
-                for (var i = 1; i <= pages; i++) {
-                    var to = i;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
-                    footer.append(elem);
-                }
-                if (pages == 0) {
-                    var elem = makePageHtml('N', pgnid, to, pgn.size, true, false);
-                    footer.append(elem);
-                }
-            }
+            var footer = makePageFooter(index,pages,pgn.size,pgnid);
 
             ul_div.append(footer);
         });
@@ -298,6 +302,37 @@ $(document).ready(function () {
         function (event, pgn, pgnid) {
             var ul_div = event.udiv;
             ul_div.empty();
+
+            var manage = $('<div class="row" id="manage">');
+            var add = $('<div class="col-sm-6">');
+            add.append($('<button class="btn btn-primary btn-lg">').text('Add'));
+            add.on('click', function () {
+                var body = $('#myModal').find('div.modal-body');
+                body.find('input#qqno').remove();
+                var qqnoinput = $('<input id="qqno" placeholder="/api/wx">');
+                body.append(qqnoinput);
+                console.log(body.html());
+                $('#myModal').attr('hidePageid', pgnid);
+
+                $('#myModal').modal({
+                    keyboard: true
+                });
+                $(document).off('click', '#myModal div.modal-footer button.btn.btn-primary');
+                $(document).on('click', '#myModal div.modal-footer button.btn.btn-primary', function (e) {
+                    $('#myModal').modal('hide');
+                    var hidpgid = $('#myModal').attr('hidePageid');
+                    var text = $('#myModal button.btn-primary').text();
+                    var body = $('#myModal').find('div.modal-body');
+                    var input = body.find('input#qqno').val();
+                    console.log('submit ' + hidpgid + ":" + text + ":" + input);
+                });
+            });
+            manage.append(add);
+            var del = $('<div class="col-sm-6">');
+            del.append($('<a class="btn btn-primary btn-lg">').text('Del'));
+            manage.append(del);
+            ul_div.append(manage);
+
             var ul = $('<ul class="nop QQul">');
             var index = event.json.index;
             var pages = event.json.pages;
@@ -320,89 +355,7 @@ $(document).ready(function () {
 
             var footer = $('<ul class="pagination">');
 
-            if (pages > 7) {
-                if (index > 1) {
-                    var elem = makePageHtml('1', pgnid, 1, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if ((index > 3 && index < pages) || index > 3) {
-                    var elem = makePageHtmlSpan('...');
-                    footer.append(elem);
-                }
-
-                if (index > pages - 1) {
-                    var to = index - 4;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > pages - 2) {
-                    var to = index - 3;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > pages - 3) {
-                    var to = index - 2;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                if (index > 2) {
-                    var to = index - 1;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index <= 1);
-                    footer.append(elem);
-                }
-
-                var elem = makePageHtml(index + '', pgnid, index, pgn.size, true, true);
-                footer.append(elem);
-
-                if (index < pages - 1) {
-                    var to = index + 1;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 4) {
-                    var to = index + 2;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 3) {
-                    var to = index + 3;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if (index < 2) {
-                    var to = index + 4;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-
-                if ((index < pages - 2 && index > 1) || pages > index + 3) {
-                    var elem = makePageHtmlSpan('...');
-                    footer.append(elem);
-                }
-
-                if (index < pages) {
-                    var to = pages;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, index >= pages);
-                    footer.append(elem);
-                }
-            } else {
-                for (var i = 1; i <= pages; i++) {
-                    var to = i;
-                    var elem = makePageHtml(to + '', pgnid, to, pgn.size, i == index, i == index);
-                    footer.append(elem);
-                }
-                if (pages == 0) {
-                    var elem = makePageHtml('N', pgnid, to, pgn.size, true, false);
-                    footer.append(elem);
-                }
-            }
+            footer = makePageFooter(index, pages, pgn.size, pgnid);
 
             ul_div.append(footer);
         });
