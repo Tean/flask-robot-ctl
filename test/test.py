@@ -1,14 +1,14 @@
 import logging
 
-from robot_ctl.robots.qqrobot import loginQQ, getGroups, sendToGroup
+from robot_ctl.robots.qqrobot import getGroups
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s')
 
 logger = logging.getLogger(__name__)
 
-# loginQQ(['3283253806'])
+# loginQQ(['3283253806','1411729768'])
 
-loginQQ(['1411729768'])
+loginWX([''])
 
 key = ''
 while key != 'c':
