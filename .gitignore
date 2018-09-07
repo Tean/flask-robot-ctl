@@ -30,3 +30,6 @@ robot_ctl/login_manager.pyc
 robot_ctl/model.pyc
 robot_ctl/page.pyc
 .vscode/
+robot_ctl/robots/__init__.pyc
+robot_ctl/robots/img/
+test/

@@ -1,6 +1,8 @@
+# coding: utf-8
 import logging
 
-from robot_ctl.robots.qqrobot import getGroups
+from robot_ctl.robots.qqrobot import getQQGroups
+from robot_ctl.robots.wxrobot import loginWX, sendToWxGroup
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s')
 
@@ -8,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 # loginQQ(['3283253806','1411729768'])
 
-loginWX([''])
+loginWX(['wxid_g75tjx6f0fv612'])
 
 key = ''
 while key != 'c':
@@ -20,7 +22,8 @@ while key != 'c':
     logger.fatal(key)
     logger.critical(key)
 
-print(getGroups())
+sendToWxGroup('xxx')
+print(getQQGroups())
 # sendToGroup('for test')
 
 key = ''
