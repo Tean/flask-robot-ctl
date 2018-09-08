@@ -12,21 +12,5 @@ flask-robot-ctl.iml
 flask-robot-ctl.ipr
 flask-robot-ctl.iws
 
-backup/__init__.pyc
-backup/monitor_admin.pyc
-backup/monitor_api.pyc
-backup/monitor_db.pyc
-backup/monitor_logger.pyc
-backup/monitor_main.pyc
-backup/monitor_resource.pyc
-backup/monitor_user.pyc
-backup/monitor_util.pyc
-robot_ctl/__pycache__/
-robot_ctl/logger.pyc
-robot_ctl/__init__.pyc
-robot_ctl/api.pyc
-robot_ctl/db_util.pyc
-robot_ctl/login_manager.pyc
-robot_ctl/model.pyc
-robot_ctl/page.pyc
+*.pyc
 .vscode/
