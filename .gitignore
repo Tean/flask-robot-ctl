@@ -32,4 +32,4 @@ robot_ctl/page.pyc
 .vscode/
 robot_ctl/robots/__init__.pyc
 robot_ctl/robots/img/
-test/
+test/temp/
