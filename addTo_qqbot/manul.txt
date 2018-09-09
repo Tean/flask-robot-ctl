@@ -1,0 +1,6 @@
+site-packages\qqbot\qqbotcls.py:
+line[344][DEL]: # QQBot.__init__ = None
+site-packages\qqbot\basicqsession.py:
+line[117][ADD]:
+    if QQFeed.loginFeed is not None:
+        QQFeed.loginFeed(authStatus)

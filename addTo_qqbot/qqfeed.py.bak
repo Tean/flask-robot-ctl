@@ -1,0 +1,22 @@
+feedlist = []
+
+
+class QQFeed(object):
+    callBack = None
+    funcName = None
+
+    def __init__(self):
+        feedlist.append(self)
+
+    def __del__(self):
+        feedlist.remove(self)
+
+    @staticmethod
+    def loginFeed(authStatus):
+        for feed in feedlist:
+            if feed.callBack is not None:
+                getattr(feed.callBack, feed.funcName)(authStatus)
+
+    def feedback(self, callback, funcname):
+        self.callBack = callback
+        self.funcName = funcname

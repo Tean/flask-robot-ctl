@@ -1,6 +1,8 @@
+import json
 import logging
 
 from qqbot import QQBot
+from qqbot.qqfeed import QQFeed
 
 loginQQBots = {}
 
@@ -61,6 +63,11 @@ def sendToQQGroup(message):
                 bot.SendTo(group, message)
 
 
+class loginCallback:
+    def loginFeedback(self, authStatus):
+        logger.info(json.dumps(authStatus))
+
+
 def loginQQ(qqlist):
     for qq in qqlist:
         bot = QQBot()
@@ -73,5 +80,7 @@ def loginQQ(qqlist):
         bot.AddSlot(onPlug)
         bot.AddSlot(onUnplug)
         bot.AddSlot(onExit)
+        feed = QQFeed()
+        feed.feedback(loginCallback(), loginCallback.loginFeedback.__name__)
         bot.Login(['-q', qq])
         loginQQBots[qq] = bot
