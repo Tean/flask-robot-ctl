@@ -2,7 +2,7 @@ import logging
 
 from qqbot import QQBot
 
-loginBots = {}
+loginQQBots = {}
 
 logger = logging.getLogger(__name__)
 
@@ -44,17 +44,17 @@ def onExit(bot, code, reason, error):
     logger.debug('%s.onExit: %r %r %r', __name__, code, reason, error)
 
 
-def getGroups(groupname=None):
+def getQQGroups(groupname=None):
     groups = {}
-    for qq in loginBots:
-        groups[qq] = loginBots[qq].List('group', groupname)
+    for qq in loginQQBots:
+        groups[qq] = loginQQBots[qq].List('group', groupname)
 
     return groups
 
 
-def sendToGroup(message):
-    for qq in loginBots:
-        bot = loginBots[qq]
+def sendToQQGroup(message):
+    for qq in loginQQBots:
+        bot = loginQQBots[qq]
         groups = bot.List('group')
         if groups:
             for group in groups:
@@ -74,4 +74,4 @@ def loginQQ(qqlist):
         bot.AddSlot(onUnplug)
         bot.AddSlot(onExit)
         bot.Login(['-q', qq])
-        loginBots[qq] = bot
+        loginQQBots[qq] = bot
