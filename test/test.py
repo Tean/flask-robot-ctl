@@ -4,7 +4,10 @@ import logging
 from robot_ctl.robots.qqrobot import getQQGroups, loginQQ
 from robot_ctl.robots.wxrobot import loginWX, sendToWxGroup
 
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s] - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s'
+)
 
 logger = logging.getLogger(__name__)
 

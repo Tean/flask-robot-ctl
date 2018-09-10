@@ -209,7 +209,7 @@ def post_qq_mapped(qq_json):
         qq_obj = json.loads(qq_json)
         s = session()
         now = datetime.datetime.now()
-        qq = QQ(-1, qq_obj['qq_no'], qq_obj['password'], now, now)
+        qq = QQ(0, qq_obj['qq_no'], qq_obj['password'], now, now)
         s.add(qq)
         ret = s.commit()
         return ret.id

@@ -263,7 +263,7 @@ $(document).ready(function () {
                     type: 'delete',
                     dataType: 'json',
                     //                        contentType: "application/json; charset=utf-8",
-                    url: '/api/qq/list/[' + del_nos + ']',
+                    url: '/api/qq/' + del_nos,
                     context: $('#myModal'),
                     success: function (e) {
                         pgn.navi_to(1);
