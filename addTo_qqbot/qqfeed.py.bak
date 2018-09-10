@@ -1,4 +1,4 @@
-feedlist = []
+feedList = []
 
 
 class QQFeed(object):
@@ -6,14 +6,15 @@ class QQFeed(object):
     funcName = None
 
     def __init__(self):
-        feedlist.append(self)
+        feedList.append(self)
 
     def __del__(self):
-        feedlist.remove(self)
+        if feedList is not None:
+            feedList.remove(self)
 
     @staticmethod
     def loginFeed(authStatus):
-        for feed in feedlist:
+        for feed in feedList:
             if feed.callBack is not None:
                 getattr(feed.callBack, feed.funcName)(authStatus)
 
