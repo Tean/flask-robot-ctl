@@ -4,12 +4,16 @@ import logging
 from qqbot import QQBot
 from qqbot.qqfeed import QQFeed
 
+from robot_ctl.singleton import Singleton
+
 loginQQBots = {}
 
 logger = logging.getLogger(__name__)
 
 
-class LoginManage:
+class LoginManage():
+    __metaclass__ = Singleton
+
     lc = None
 
     def __init__(self):
@@ -57,7 +61,7 @@ class LoginManage:
                 for group in groups:
                     bot.SendTo(group, message)
 
-    def loginQQ(self, qqlist):
+    def loginQQs(self, qqlist):
         qqlistlen = len(qqlist)
         for index in range(qqlistlen):
             qq = qqlist[index]
@@ -77,6 +81,25 @@ class LoginManage:
             loginQQBots[qq] = bot
             if self.lc is not None:
                 self.lc(index, qqlistlen, 'success')
+
+    def loginQQ(self, qqNo):
+        bot = QQBot()
+        bot.AddSlot(self.onInit)
+        bot.AddSlot(self.onQrcode)
+        bot.AddSlot(self.onQQMessage)
+        bot.AddSlot(self.onInterval)
+        bot.AddSlot(self.onStartupComplete)
+        bot.AddSlot(self.onUpdate)
+        bot.AddSlot(self.onPlug)
+        bot.AddSlot(self.onUnplug)
+        bot.AddSlot(self.onExit)
+        feed = QQFeed()
+        feed.feedback(LoginCallback(), LoginCallback.loginFeedback.__name__)
+        bot.Login(['-q', qqNo])
+        loginQQBots[qqNo] = bot
+        if self.lc is not None:
+            ql = len(loginQQBots)
+            self.lc(loginQQBots, loginQQBots, 'success')
 
     def loginCounter(self, lc):
         self.lc = lc

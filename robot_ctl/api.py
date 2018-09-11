@@ -12,6 +12,7 @@ from robot_ctl.db_util import get_qq_list_mapped, get_qq_page, get_qq_mapped, de
     del_qqlist_mapped, get_qq_nos_mapped
 from robot_ctl.logger import getLogger
 from robot_ctl.model import QQEncoder, Generator
+from robot_ctl.robots.qqrobot import LoginManage
 
 logger = getLogger(__name__)
 
@@ -33,6 +34,8 @@ def init_api(app):
     api.add_resource(QQByNo, '/api/qq/<qq_no>')
     api.add_resource(QQAdd, '/api/qq')
     api.add_resource(QQPage, '/api/qq/page/<index>')
+    api.add_resource(QQLogin, '/api/qq/login/<qq_no>')
+    api.add_resource(QQSend, '/api/qq/send/message/groups/<groups_name>')
     api.add_resource(WxList, '/api/wx/list')
     api.add_resource(WxByNo, '/api/wx/<wx_no>')
     api.add_resource(WxAdd, '/api/wx')
@@ -88,6 +91,23 @@ class QQPage(Resource):
         lists = Generator.makeQQList(qqlist)
         ret = {'index': index, 'pages': pages, 'items': lists}
         return ret
+
+
+class QQLogin(Resource):
+    def post(self, qq_no):
+        LoginManage().loginQQ(str(qq_no))
+        return '', 200
+
+
+class QQSend(Resource):
+    def post(self, groups_name):
+        jsn = request.json
+        if jsn is None:
+            ret = request.values.to_dict()['message']
+        else:
+            ret = jsn
+        LoginManage().sendToQQGroup(str(jsn))
+        pass
 
 
 class QQByNo(Resource):
