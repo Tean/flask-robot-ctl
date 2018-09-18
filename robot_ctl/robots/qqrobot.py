@@ -1,5 +1,6 @@
 import json
 import logging
+import threading
 
 from qqbot import QQBot
 from qqbot.qqfeed import QQFeed
@@ -26,6 +27,8 @@ class LoginManage():
         logger.debug('%s.onQrcode: %s (%d bytes)', __name__, pngPath, len(pngContent))
 
     def onQQMessage(self, bot, contact, member, content):
+        from robot_ctl.wsioserver import send_all
+        send_all({'member': member.name, 'content': content})
         if content == '--version' and getattr(member, 'uin') == bot.conf.qq:
             bot.SendTo(contact, 'QQbot-' + bot.conf.version)
 
@@ -53,10 +56,13 @@ class LoginManage():
             groups[qq] = loginQQBots[qq].List('group', groupname)
         return groups
 
-    def sendToQQGroup(self, message):
+    def sendToQQGroup(self, message, groupname=None):
         for qq in loginQQBots:
             bot = loginQQBots[qq]
-            groups = bot.List('group')
+            if groupname is None:
+                groups = bot.List('group')
+            else:
+                groups = bot.List('group', groupname)
             if groups:
                 for group in groups:
                     bot.SendTo(group, message)
@@ -65,6 +71,10 @@ class LoginManage():
         qqlistlen = len(qqlist)
         for index in range(qqlistlen):
             qq = qqlist[index]
+            self.loginQQ(qq)
+
+    def loginQQ(self, qqNo):
+        def func(qq):
             bot = QQBot()
             bot.AddSlot(self.onInit)
             bot.AddSlot(self.onQrcode)
@@ -79,27 +89,14 @@ class LoginManage():
             feed.feedback(LoginCallback(), LoginCallback.loginFeedback.__name__)
             bot.Login(['-q', qq])
             loginQQBots[qq] = bot
+            bot.Run()
             if self.lc is not None:
-                self.lc(index, qqlistlen, 'success')
-
-    def loginQQ(self, qqNo):
-        bot = QQBot()
-        bot.AddSlot(self.onInit)
-        bot.AddSlot(self.onQrcode)
-        bot.AddSlot(self.onQQMessage)
-        bot.AddSlot(self.onInterval)
-        bot.AddSlot(self.onStartupComplete)
-        bot.AddSlot(self.onUpdate)
-        bot.AddSlot(self.onPlug)
-        bot.AddSlot(self.onUnplug)
-        bot.AddSlot(self.onExit)
-        feed = QQFeed()
-        feed.feedback(LoginCallback(), LoginCallback.loginFeedback.__name__)
-        bot.Login(['-q', qqNo])
-        loginQQBots[qqNo] = bot
-        if self.lc is not None:
-            ql = len(loginQQBots)
+                ql = len(loginQQBots)
             self.lc(loginQQBots, loginQQBots, 'success')
+
+        t = threading.Thread(target=func, args=(qqNo,))
+        t.daemon = True
+        t.start()
 
     def loginCounter(self, lc):
         self.lc = lc

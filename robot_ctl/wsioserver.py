@@ -1,39 +1,18 @@
+import datetime
 from threading import Lock
 
-from flask import Flask, session, request
-from flask_socketio import SocketIO, emit, join_room, rooms, leave_room, close_room, disconnect
-
-from robot_ctl import model, api, login_manager
-from robot_ctl.page import robot_blueprint
+from flask import session, request
+from flask_socketio import emit, leave_room, rooms, close_room, disconnect, join_room, SocketIO
 
 thread = None
 thread_lock = Lock()
 
-app = Flask(__name__)
+socketio = SocketIO()
 
 
-app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-app.config['UPLOAD_PATH'] = 'upload'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['UPLOADS_DEFAULT_DEST'] = app.config['UPLOAD_PATH']
-app.config['UPLOADS_DEFAULT_URL'] = 'http://127.0.0.1:9000/'
-
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.secret_key = 'aHR0cDovL3d3dy53YW5kYS5jbi8='
-
-app.register_blueprint(robot_blueprint, static_folder='static')
-
-app.config['SECRET_KEY'] = 'secret!'
-
-model.init_app(app)
-
-api.init_api(app)
-
-login_manager.init_app(app)
-
-socketio = SocketIO(app)
+def init_wsio(app):
+    socketio.init_app(app)
+    return socketio
 
 
 @socketio.on('my_event', namespace='/test')
@@ -101,12 +80,12 @@ def ping_pong():
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
-    global thread
-    print('Client connected', request.sid)
-    with thread_lock:
-        if thread is None:
-            thread = socketio.start_background_task(target=background_thread)
+    # global thread
+    # with thread_lock:
+    #     if thread is None:
+    #         thread = socketio.start_background_task(target=background_thread)
     emit('my_response', {'data': 'Connected', 'count': 0})
+    print('Client connected', request.sid)
 
 
 @socketio.on('disconnect', namespace='/test')
@@ -125,5 +104,6 @@ def background_thread():
                       namespace='/test')
 
 
-if __name__ == '__main__':
-    socketio.run(app, port=9000, host='0.0.0.0')
+def send_all(message):
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    socketio.emit('qq_group_msg', {'data': message, 'time': now}, namespace='/robot')

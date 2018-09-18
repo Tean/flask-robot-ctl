@@ -12,7 +12,8 @@ logger = getLogger(__name__)
 
 
 def init_app(app):
-    return db.init_app(app)
+    db.init_app(app)
+    return db
 
 
 class QQ(db.Model):

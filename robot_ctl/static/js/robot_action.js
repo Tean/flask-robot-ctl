@@ -92,9 +92,68 @@
         if (index > pgn.pages) index = pgn.pages;
         pgn.navi_to(index);
     }
+
+    exp.now = function (fmt) { //author: meizz 
+        if (fmt == null)
+            fmt = 'yyyy-MM-dd HH:mm:ss';
+        now = new Date();
+        var o = {
+            'M+': now.getMonth() + 1, //月份 
+            'd+': now.getDate(), //日 
+            'H+': now.getHours(), //小时
+            'm+': now.getMinutes(), //分
+            's+': now.getSeconds(), //秒
+            'q+': Math.floor((now.getMonth() + 3) / 3), //季度
+            'S': now.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (now.getFullYear() + '').substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+        return fmt;
+    }
 })();
 
 $(document).ready(function () {
+    let locations = {
+        protocol: 'http:',
+        port: 9000
+    }
+    let namespace = '/robot';
+    var socket = io.connect(locations.protocol + '//' + document.domain + ':' + locations.port +
+        namespace);
+    socket.on('qq_group_msg', function (msg) {
+        var group_msg = $('<div class="group_msg">')
+        group_msg.text('[' + msg.data.member + '] - [' + msg.time + ']:' + msg.data.content)
+        console.log('rec:' + ex.now());
+        $('#recv_msg').append(group_msg);
+    });
+
+    $(document).on('keydown', '.inputarea', function (e) {
+        // console.log(e.keyCode);
+    })
+
+    $('.sendbtn').text('发送');
+    $(document).on('click', '.sendbtn', function () {
+        var content = $('.inputarea').val()
+        console.log('content:' + content);
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json; charset=UTF-8',
+            //                        contentType: "application/json; charset=utf-8",
+            url: '/api/qq/send/message/groups',
+            data: JSON.stringify({
+                'message': {
+                    'content': content
+                }
+            }),
+            context: $('.inputarea'),
+            success: function (e) {
+
+            },
+        });
+    });
+
     // ex.makePageFoot(1, 10, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']);
     var makePageHtml = function (text, pgnid, pageindex, pagesize, disabled = false, active = false) {
         var link = $('<a class="btn" href="javascript:ex.to(\'' + pgnid + '\',' + pageindex + ',' + pagesize + ');">').text(text);
@@ -294,7 +353,7 @@ $(document).ready(function () {
             });
             ul_div.append(ul);
 
-            var footer = makePageFooter(index,pages,pgn.size,pgnid);
+            var footer = makePageFooter(index, pages, pgn.size, pgnid);
 
             ul_div.append(footer);
         });

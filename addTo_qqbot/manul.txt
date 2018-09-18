@@ -1,10 +1,14 @@
-site-packages\qqbot\qqbotcls.py:
+site-packages/qqbot/qqbotcls.py:
 line[340+][DEL]: # QQBot.__init__ = None
-site-packages\qqbot\basicqsession.py:
+site-packages/qqbot/basicqsession.py:
 line[110+][ADD]:
     if QQFeed.loginFeed is not None:
         QQFeed.loginFeed(authStatus)
-site-packages\qqbot\qsession.py:
+site-packages/qqbot/qsession.py:
 line[30+][ADD]:
     if QQFeed.loginFeed is not None:
         QQFeed.loginFeed('restore')
+site-packages/qqbot/qcontactdb/contactdb.py
+line[100+][MODI]:
+    -self.conn = sqlite3.connect(dbname)
+    +self.conn = sqlite3.connect(dbname,check_same_thread=False)
