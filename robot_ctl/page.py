@@ -82,4 +82,5 @@ def index(qqpage=1):
     qqlist = qqs[0]
     index = qqs[1]
     pages = qqs[2]
-    return render_template('home.html', qqlist=qqlist, pages=pages, page_num=index, size=s)
+    # return render_template('home.html', qqlist=qqlist, pages=pages, page_num=index, size=s)
+    return redirect(url_for('page.robot'))
