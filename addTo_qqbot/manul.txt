@@ -1,14 +1,31 @@
+※添加qqfeed.py到site-packages/qqbot目录
+※修改site-packages/qqbot以下内容
 site-packages/qqbot/qqbotcls.py:
-line[340+][DEL]: # QQBot.__init__ = None
+line[340+][DEL]:
+    -QQBot.__init__ = None
+
 site-packages/qqbot/basicqsession.py:
 line[110+][ADD]:
-    if QQFeed.loginFeed is not None:
-        QQFeed.loginFeed(authStatus)
+    self.dbbasename = '%s-%s-contact.db' % (t, self.qq)
+    self.dbname = conf.absPath(self.dbbasename)
+    conf.SetQQ(self.qq)
+    +if QQFeed.loginFeed is not None:
+    +   QQFeed.loginFeed(authStatus)
+    break
+
 site-packages/qqbot/qsession.py:
 line[30+][ADD]:
-    if QQFeed.loginFeed is not None:
-        QQFeed.loginFeed('restore')
+    try:
+        session.TestLogin()
+        +if QQFeed.loginFeed is not None:
+        +   QQFeed.loginFeed('restore')
+    except RequestError:
+
 site-packages/qqbot/qcontactdb/contactdb.py
 line[100+][MODI]:
-    -self.conn = sqlite3.connect(dbname)
-    +self.conn = sqlite3.connect(dbname,check_same_thread=False)
+    class ContactDB(object):
+        def __init__(self, dbname=':memory:'):
+            -self.conn = sqlite3.connect(dbname)
+            +self.conn = sqlite3.connect(dbname,check_same_thread=False)
+            self.conn.text_factory = str
+            self.cursor = self.conn.cursor()
