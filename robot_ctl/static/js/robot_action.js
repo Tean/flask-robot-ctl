@@ -271,7 +271,7 @@ $(document).ready(function () {
             var ul_div = event.udiv;
             ul_div.empty();
             var manage = $('<div class="row" id="manage">');
-            var add = $('<div class="col-sm-6">');
+            var add = $('<div class="col-sm-4">');
             add.append($('<button class="btn btn-primary btn-lg">').text('Add'));
             add.on('click', function () {
                 var body = $('#myModal').find('div.modal-body');
@@ -308,7 +308,7 @@ $(document).ready(function () {
                 });
             });
             manage.append(add);
-            var del = $('<div class="col-sm-6">');
+            var del = $('<div class="col-sm-4">');
             del.append($('<a class="btn btn-primary btn-lg">').text('Del'));
             del.on('click', function (e) {
                 var lis = $('#qqpage li input:checked').parent();
@@ -330,6 +330,35 @@ $(document).ready(function () {
                 });
             })
             manage.append(del);
+            var login = $('<div class="col-sm-4">');
+            login.append($('<a class="btn btn-primary btn-lg disabled">').text('Login'));
+            login.on('click', function (e) {
+                //TODO: 批量登录
+                return;
+                // var qqnoelems = $('.QQli .QQNo').toArray();
+                // var qqnoelems = $('.QQli input:checkbox:not(:checked)').toArray();
+                var qqnoelems = $('.QQli input:checkbox:checked').toArray();
+                var qqnos = [];
+                qqnoelems.forEach(qq => {
+                    var qqno = $(qq).attr('data_value');
+                    qqnos.push(qqno);
+                    // login qq
+                    return;
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=UTF-8',
+                        //                        contentType: "application/json; charset=utf-8",
+                        url: '/api/qq/login/'+qqno,
+                        context: $(qq),
+                        success: function (e) {
+
+                        },
+                    });
+                });
+                console.log(qqnos);
+            });
+            manage.append(login);
             ul_div.append(manage);
             var ul = $('<ul class="nop QQul">');
             var index = event.json.index;
@@ -348,6 +377,24 @@ $(document).ready(function () {
                 var checker = $('<input type="checkbox">').attr('data_value', item.qq_no);
                 // $('#qqpage li input:checked').parent();
                 li.append(checker);
+                var loginbtn = $('<a class="btn btn-primary btn-lg" style="float:right;">');
+                loginbtn.on('click', function (e) {
+                    var qqno = $(this).siblings('input').attr('data_value');
+                    // return;
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=UTF-8',
+                        //                        contentType: "application/json; charset=utf-8",
+                        url: '/api/qq/login/' + qqno,
+                        context: $(this).siblings('input'),
+                        success: function (e) {
+                            $(this).prop("checked", true);
+                        },
+                    });
+                });
+                loginbtn.text('Login');
+                li.append(loginbtn);
                 // console.log(JSON.stringify(item));
                 ul.append(li);
             });

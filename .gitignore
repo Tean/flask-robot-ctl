@@ -17,3 +17,4 @@ flask-robot-ctl.iws
 robot_ctl/robots/__init__.pyc
 robot_ctl/robots/img/
 test/temp/
+test/logs/
