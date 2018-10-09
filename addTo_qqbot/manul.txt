@@ -4,6 +4,14 @@ site-packages/qqbot/qqbotcls.py:
 line[340+][DEL]:
     -QQBot.__init__ = None
 
+
+site-packages/qqbot/basicqsession.py:
+line[80+][ADD]:
+    INFO('已获取二维码')
+    +if QQFeed.qrfeed is not None:
+    +    QQFeed.qrfeed(qrcode)
+    return qrcode
+
 site-packages/qqbot/basicqsession.py:
 line[110+][ADD]:
     self.dbbasename = '%s-%s-contact.db' % (t, self.qq)

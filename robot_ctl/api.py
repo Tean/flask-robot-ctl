@@ -97,8 +97,8 @@ class QQPage(Resource):
 
 class QQLogin(Resource):
     def post(self, qq_no):
-        LoginManage().loginQQ(str(qq_no))
-        return '', 200
+        qrc = LoginManage().loginQQ(str(qq_no))
+        return qrc
 
 
 class QQSendAll(Resource):

@@ -1,23 +1,34 @@
-feedList = []
+feedlist = []
 
 
 class QQFeed(object):
     callBack = None
     funcName = None
+    qrCallBack = None
+    qrFuncName = None
 
     def __init__(self):
-        feedList.append(self)
+        feedlist.append(self)
 
     def __del__(self):
-        if feedList is not None:
-            feedList.remove(self)
+        feedlist.remove(self)
 
     @staticmethod
     def loginFeed(authStatus):
-        for feed in feedList:
+        for feed in feedlist:
             if feed.callBack is not None:
                 getattr(feed.callBack, feed.funcName)(authStatus)
+
+    @staticmethod
+    def qrfeed(qrcode):
+        for feed in feedlist:
+            if feed.qrCallBack is not None:
+                getattr(feed.qrCallBack, feed.qrFuncName)(qrcode)
 
     def feedback(self, callback, funcname):
         self.callBack = callback
         self.funcName = funcname
+
+    def qrback(self, qrback, funcname):
+        self.qrCallBack = qrback
+        self.qrFuncName = funcname

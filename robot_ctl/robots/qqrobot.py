@@ -85,8 +85,9 @@ class LoginManage():
             bot.AddSlot(self.onPlug)
             bot.AddSlot(self.onUnplug)
             bot.AddSlot(self.onExit)
-            feed = QQFeed()
+            feed = QQFeed(qq)
             feed.feedback(LoginCallback(), LoginCallback.loginFeedback.__name__)
+            feed.qrback(QRCallback(), QRCallback.qrCode.__name__)
             bot.Login(['-q', qq])
             loginQQBots[qq] = bot
             bot.Run()
@@ -106,5 +107,13 @@ class LoginCallback:
     def __init__(self):
         pass
 
-    def loginFeedback(self, authStatus):
+    def loginFeedback(self, qq, authStatus):
         logger.info(json.dumps(authStatus))
+
+
+class QRCallback:
+    def __init__(self):
+        pass
+
+    def qrCode(self, qq, qrcode):
+        logger.info(qrcode)

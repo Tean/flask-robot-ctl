@@ -351,8 +351,8 @@ $(document).ready(function () {
                         //                        contentType: "application/json; charset=utf-8",
                         url: '/api/qq/login/'+qqno,
                         context: $(qq),
-                        success: function (e) {
-
+                        success: function (e,v,t) {
+                            console.log(e+":"+v+":"+t);
                         },
                     });
                 });
