@@ -156,3 +156,35 @@ body {
  .sendbtn {
      width: 100%;
  }
+
+ .imgBack {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=88);
+ }
+
+ .imgFore {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    padding: 20px;
+    border: 10px solid orange;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+ }
+
+ .imgClose {
+    background: url('../images/delete.png') center no-repeat;
+    width: 3%;
+    height: 11%;
+    float: right;
+ }

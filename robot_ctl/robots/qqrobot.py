@@ -1,6 +1,7 @@
 import json
 import logging
 import threading
+import time
 
 from qqbot import QQBot
 from qqbot.qqfeed import QQFeed
@@ -8,6 +9,7 @@ from qqbot.qqfeed import QQFeed
 from robot_ctl.singleton import Singleton
 
 loginQQBots = {}
+loginQRcode = {}
 
 logger = logging.getLogger(__name__)
 
@@ -99,6 +101,10 @@ class LoginManage():
         t.daemon = True
         t.start()
 
+        time.sleep(5)
+        return loginQRcode[qqNo]
+
+
     def loginCounter(self, lc):
         self.lc = lc
 
@@ -116,4 +122,5 @@ class QRCallback:
         pass
 
     def qrCode(self, qq, qrcode):
+        loginQRcode[qq] = qrcode
         logger.info(qrcode)

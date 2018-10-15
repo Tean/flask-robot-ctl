@@ -352,7 +352,17 @@ $(document).ready(function () {
                         url: '/api/qq/login/'+qqno,
                         context: $(qq),
                         success: function (e,v,t) {
-                            console.log(e+":"+v+":"+t);
+                            console.log("login response:"+e+":"+v+":"+t);
+                            var popimg = $('#popimg');
+                            console.log(popimg.length);
+                            if(popimg.length == 0) {
+                                var newpopimg = $('<img>').attr({'id':'popimg','src':'e'}).hide();
+                                $('body').append(newpopimg);
+                                console.log($('#popimg').length);
+                                popimg = newpopimg;
+                            }
+                            popimg.show();
+                            popimg.src = e;
                         },
                     });
                 });
@@ -388,8 +398,26 @@ $(document).ready(function () {
                         //                        contentType: "application/json; charset=utf-8",
                         url: '/api/qq/login/' + qqno,
                         context: $(this).siblings('input'),
-                        success: function (e) {
+                        success: function (e,v,t) {
                             $(this).prop("checked", true);
+                            console.log("login response:"+e+":"+v+":"+t);
+                            var popimg = $('#popimg');
+                            console.log(popimg.length);
+                            if(popimg.length == 0) {
+                                var imgback = $('<div>').attr({'id':'popimg'}).addClass('imgBack').hide();
+                                var imgclose = $('<div>').attr({'id':'popclose'}).addClass('imgClose');
+                                imgclose.on('click',function(){
+                                    $('#popimg').hide();
+                                });
+                                var newpopimg = $('<img>').attr({'src':'e'}).addClass('imgFore');
+                                imgback.append(newpopimg);
+                                imgback.append(imgclose);
+                                $('body').append(imgback);
+                                console.log($('#popimg').length);
+                                popimg = imgback;
+                            }
+                            popimg.find('img').attr('src',e);
+                            popimg.show();
                         },
                     });
                 });
@@ -462,7 +490,7 @@ $(document).ready(function () {
             var footer = $('<ul class="pagination">');
 
             footer = makePageFooter(index, pages, pgn.size, pgnid);
-
+'"' +
             ul_div.append(footer);
         });
     console.log(ex.make());

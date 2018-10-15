@@ -1,4 +1,5 @@
 # coding=utf-8
+import base64
 import httplib
 import json
 import random
@@ -98,7 +99,7 @@ class QQPage(Resource):
 class QQLogin(Resource):
     def post(self, qq_no):
         qrc = LoginManage().loginQQ(str(qq_no))
-        return qrc
+        return u"data:image/png;base64," + base64.b64encode(qrc).decode('ascii')
 
 
 class QQSendAll(Resource):
