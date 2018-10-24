@@ -116,7 +116,7 @@
 $(document).ready(function () {
     let locations = {
         protocol: 'http:',
-        port: 6666
+        port: 8081
     }
     let namespace = '/robot';
     var socket = io.connect(locations.protocol + '//' + document.domain + ':' + locations.port +

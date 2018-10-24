@@ -15,7 +15,7 @@ from robot_ctl.page import robot_blueprint
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:9CNa0BvE@localhost:3306/robot_ctl'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:9CNa0BvE@47.107.53.36:3306/robot_ctl'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -44,4 +44,4 @@ if __name__ == '__main__':
     # app.run(port=9000)
     app.debug = False
     print('main start up')
-    sio.run(app, port=6666)
+    sio.run(app, port=8081)

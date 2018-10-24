@@ -16,6 +16,10 @@ def init_app(app):
     return db
 
 
+def get_db_session():
+    return db.session
+
+
 class QQ(db.Model):
     __tablename__ = 'qq_list'
 
