@@ -18,8 +18,12 @@ config = {
     'database': 'robot_ctl',
     'charset': 'utf8'
 }
+config['host'] = '47.107.53.36'
+config['user'] = 'root'
+config['password'] = '9CNa0BvE'
 
-db_url = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
+# db_url = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
+db_url = 'mysql+pymysql://root:9CNa0BvE@47.107.53.36:3306/robot_ctl'
 
 select_qq_list = 'select * from qq_list'
 select_qq_by_no = 'select * from qq_list where qq_no = %s limit 1'

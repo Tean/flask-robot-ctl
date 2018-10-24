@@ -1,33 +1,44 @@
+# -*- coding: utf-8 -*-
+
 import flask_login
 from flask import request, make_response, render_template, url_for, Blueprint
 from flask_restful import abort
 from werkzeug.utils import redirect
 
-from robot_ctl.api import ApiRequest
 from robot_ctl.db_util import get_user_session, get_qq_page
 from robot_ctl.logger import getLogger
 from robot_ctl.login_manager import User
-from backup.monitor_main import is_safe_url
-from robot_ctl.model import QQ
 
 logger = getLogger(__name__)
 
 robot_blueprint = Blueprint('page', __name__, template_folder='templates')
 
+print('init page')
+
+
+def is_safe_url(next_url):
+    logger.debug("next url is %s:" % next_url)
+    return True
+
 
 @robot_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        print('login')
+
         username = request.form['username']
         password = request.form['password']
+
+        next_url = request.args.get("next")
+        logger.debug('next is %s' % next_url)
 
         user = get_user_session(username)
         logger.debug('db user id is %s, detail is %s' % (username, user))
         if user is None:
-            return abort(400)
+            return render_template('login.html', res={'tips': u'找不到用户', 'user': username})
 
-        next_url = request.args.get("next")
-        logger.debug('next is %s' % next_url)
+        if password != user.password:
+            return render_template('login.html', res={'tips': u'密码错误', 'user': username})
 
         if password == user.password and username == user.username:
             # set login user
@@ -44,7 +55,7 @@ def login():
             # return redirect(url_for('error'))
             return abort(404)
 
-    return render_template('login.html')
+    return render_template('login.html', res={'tips': '', 'user': ''})
 
 
 @robot_blueprint.route('/robot', methods=['GET'])
@@ -75,12 +86,12 @@ def logout():
 @flask_login.login_required
 def index(qqpage=1):
     s = request.args.get('size')
-    print(str.format('{}:{}', qqpage, s))
-    if s is None:
-        s = 10
-    qqs = get_qq_page(qqpage, s)
-    qqlist = qqs[0]
-    index = qqs[1]
-    pages = qqs[2]
-    # return render_template('home.html', qqlist=qqlist, pages=pages, page_num=index, size=s)
+    # print(str.format('{}:{}', qqpage, s))
+    # if s is None:
+    #     s = 10
+    # qqs = get_qq_page(qqpage, s)
+    # qqlist = qqs[0]
+    # index = qqs[1]
+    # pages = qqs[2]
+    # # return render_template('home.html', qqlist=qqlist, pages=pages, page_num=index, size=s)
     return redirect(url_for('page.robot'))

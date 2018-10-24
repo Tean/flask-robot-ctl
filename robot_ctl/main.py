@@ -8,25 +8,15 @@ from flask_socketio import SocketIO
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
-sys.path.append('..\\..\\flask-robot-ctl')
-sys.path.append('../../flask-robot-ctl')
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='[%(asctime)s] - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s'
-)
+sys.path.append('..')
 
 from robot_ctl import api, model, login_manager, wsserver, wsioserver
 from robot_ctl.page import robot_blueprint
 
 app = Flask(__name__)
 
-app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-app.config['UPLOAD_PATH'] = 'upload'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://tester:1234@localhost:3306/robot_ctl'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:9CNa0BvE@localhost:3306/robot_ctl'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['UPLOADS_DEFAULT_DEST'] = app.config['UPLOAD_PATH']
-app.config['UPLOADS_DEFAULT_URL'] = 'http://127.0.0.1:9000/'
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -52,5 +42,6 @@ if __name__ == '__main__':
     # server = pywsgi.WSGIServer(('', 9000), app, handler_class=WebSocketHandler)
     # server.serve_forever()
     # app.run(port=9000)
-    # app.debug = True
-    sio.run(app, port=9000, debug=False)
+    app.debug = False
+    print('main start up')
+    sio.run(app, port=6666)

@@ -15,9 +15,10 @@
             <h1>Welcome</h1>
             <!--<form class="form" method="post" action="/" onsubmit="return doLogin();">-->
             <form class="form" method="post" action="">
-                <input type="text" placeholder="Username" name="username" id="username">
+                <input type="text" placeholder="Username" name="username" id="username" value="{{ res.user }}">
                 <input type="password" placeholder="Password" name="password" id="password">
                 <button type="submit" id="login-button">Login</button>
+                <div style="color:red;">{{ res.tips }}</div>
             </form>
         </div>
 
@@ -63,6 +64,7 @@
         });
         return login;
     }
+
 
 </script>
 
