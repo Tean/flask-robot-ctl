@@ -132,7 +132,7 @@ $(document).ready(function () {
         // console.log(e.keyCode);
     })
 
-    $('.sendbtn').text('发送');
+    $('.sendbtn').attr('value','发送').text('发送');
     $(document).on('click', '.sendbtn', function () {
         var content = $('.inputarea').val()
         console.log('content:' + content);

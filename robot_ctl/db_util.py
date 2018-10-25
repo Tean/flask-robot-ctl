@@ -109,6 +109,7 @@ def post_qq_mapped(qq_json):
     try:
         s = get_db_session()
         now = datetime.datetime.now()
+        qq_obj = json.loads(qq_json)
         qq = QQ(0, qq_obj['qq_no'], qq_obj['password'], now, now)
         s.add(qq)
         ret = s.commit()
